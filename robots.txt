@@ -1,0 +1,35 @@
+# robots.txt für Stoffgarage - Autoabdeckungen
+# Letzte Aktualisierung: 2025-12-30
+
+User-agent: *
+Allow: /
+
+# Wichtige Seiten für Crawling
+Allow: /index.html
+Allow: /klassisch.html
+Allow: /praktisch.html
+Allow: /premium.html
+Allow: /exclusiv.html
+Allow: /camper-abdeckungen.html
+Allow: /abdeckung-hagelschutz.html
+Allow: /abdeckung-pkw-neu-.html
+Allow: /kontakt.html
+
+# CSS und JavaScript erlauben (für Google Page Speed)
+Allow: /style/
+Allow: /res/
+Allow: /pcss/
+
+# Bilder erlauben (für Google Bilder)
+Allow: /images/
+
+# Admin-Bereiche blockieren (falls vorhanden)
+Disallow: /admin/
+Disallow: /cgi-bin/
+Disallow: /_private/
+
+# Sitemap
+Sitemap: https://stoffgarage.de/sitemap.xml
+
+# Crawl-Delay für schonenderes Crawling
+Crawl-delay: 1

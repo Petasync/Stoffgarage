@@ -1,0 +1,205 @@
+/**
+ * Mobile Responsive CSS for Stoffgarage
+ * Ensures optimal display on all devices
+ */
+
+/* Mobile-First Base Styles */
+@media screen and (max-width: 768px) {
+    /* Typography adjustments for mobile */
+    body {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    h1, .fs24lh1-5 {
+        font-size: 20px !important;
+        line-height: 1.4 !important;
+    }
+
+    h2 {
+        font-size: 22px !important;
+        margin-bottom: 15px !important;
+    }
+
+    h3 {
+        font-size: 16px !important;
+    }
+
+    /* Content containers */
+    .imPageRow div[style*="max-width: 900px"] {
+        padding: 20px 15px !important;
+    }
+
+    /* Grid layouts - stack on mobile */
+    div[style*="display: grid"] {
+        grid-template-columns: 1fr !important;
+        gap: 15px !important;
+    }
+
+    /* Buttons - full width on mobile */
+    button,
+    a[style*="display: inline-block"] {
+        display: block !important;
+        width: 100% !important;
+        text-align: center !important;
+        margin: 10px 0 !important;
+    }
+
+    /* Images - responsive */
+    img {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+
+    /* Padding adjustments */
+    div[style*="padding: 40px"] {
+        padding: 25px 15px !important;
+    }
+
+    div[style*="padding: 25px"] {
+        padding: 20px 15px !important;
+    }
+
+    /* FAQ and content boxes */
+    div[style*="border-left: 4px solid"] {
+        padding: 15px !important;
+        margin-bottom: 12px !important;
+    }
+
+    /* Tables - make scrollable */
+    table {
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* Navigation adjustments */
+    #imHeader, #imStickyBar {
+        padding: 10px 5px !important;
+    }
+
+    /* Footer adjustments */
+    #imFooter {
+        padding: 20px 10px !important;
+        font-size: 12px !important;
+    }
+
+    /* Form elements */
+    input[type="text"],
+    input[type="email"],
+    select,
+    textarea {
+        width: 100% !important;
+        font-size: 16px !important; /* Prevents zoom on iOS */
+    }
+}
+
+/* Tablet Portrait */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    div[style*="display: grid"] {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+    }
+
+    .imPageRow div[style*="max-width: 900px"] {
+        padding: 30px 20px !important;
+    }
+}
+
+/* Small mobile phones */
+@media screen and (max-width: 480px) {
+    h1, .fs24lh1-5 {
+        font-size: 18px !important;
+    }
+
+    h2 {
+        font-size: 20px !important;
+    }
+
+    /* Extra compact padding for small screens */
+    .imPageRow {
+        padding: 20px 10px !important;
+    }
+
+    /* Stack flex layouts */
+    div[style*="display: flex"] {
+        flex-direction: column !important;
+        gap: 10px !important;
+    }
+
+    /* Font size adjustments */
+    p, li, div {
+        font-size: 14px !important;
+    }
+}
+
+/* Print styles */
+@media print {
+    .hamburger-button,
+    .hamburger-component,
+    #imHeader,
+    #imStickyBar,
+    button {
+        display: none !important;
+    }
+
+    body {
+        font-size: 12pt;
+        color: #000;
+    }
+
+    a {
+        text-decoration: underline;
+    }
+
+    img {
+        max-width: 100%;
+        page-break-inside: avoid;
+    }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+    /* Larger touch targets */
+    button,
+    a {
+        min-height: 44px;
+        min-width: 44px;
+        padding: 12px 20px;
+    }
+
+    /* Remove hover effects on touch devices */
+    .imMnMn li.imPage:hover {
+        background: none;
+    }
+}
+
+/* High DPI / Retina displays */
+@media (-webkit-min-device-pixel-ratio: 2),
+       (min-resolution: 192dpi) {
+    /* Sharper text rendering */
+    body {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+}
+
+/* Accessibility - Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    /* Optional: Add dark mode styles if needed
+    body {
+        background-color: #1a1a1a;
+        color: #ffffff;
+    }
+    */
+}
