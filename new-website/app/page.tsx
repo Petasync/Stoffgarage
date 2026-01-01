@@ -1,5 +1,6 @@
 import Hero from '@/components/Hero';
 import ProductCard from '@/components/ProductCard';
+import Configurator from '@/components/Configurator';
 import Footer from '@/components/Footer';
 
 const products = [
@@ -83,10 +84,16 @@ export default function Home() {
 
       <section id="konfigurator" className="section bg-dark-900">
         <div className="container-custom">
-          <h2 className="title-lg text-center gradient-text mb-12">
-            3D Auto-Konfigurator
-          </h2>
-          {/* Configurator will be added next */}
+          <div className="text-center mb-12">
+            <h2 className="title-lg gradient-text mb-6">
+              3D Auto-Konfigurator
+            </h2>
+            <p className="text-gray-400 text-lg max-w-3xl mx-auto">
+              Konfigurieren Sie Ihre perfekte Autoabdeckung in Echtzeit. Wählen Sie Fahrzeugtyp,
+              Größe, Farbe und Produktlinie – sehen Sie das Ergebnis sofort in 3D.
+            </p>
+          </div>
+          <Configurator />
         </div>
       </section>
 
