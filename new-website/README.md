@@ -4,14 +4,21 @@ Eine moderne, hochperformante Next.js Website für Premium Autoabdeckungen mit 3
 
 ## ✨ Features
 
-- 🎨 **3D Visualisierung** - Three.js powered 3D-Modelle
-- 🔄 **360° Produktansichten** - Interaktive Produktdarstellung
-- 🎬 **Smooth Animations** - GSAP & Framer Motion
-- 📱 **Mobile-First Design** - Vollständig responsive
-- ⚡ **Optimale Performance** - Next.js 14 mit Static Export
+### Hauptfeatures:
+- 🎨 **3D Auto-Konfigurator** - Interaktive Echtzeit-Konfiguration mit Three.js
+- 🔄 **360° Produktviewer** - Drag-to-Rotate mit Auto-Rotation und Zoom
+- 📱 **AR Vorschau** - Augmented Reality Preview mit QR-Code für Mobile
+- ⭐ **Kunden-Bewertungen** - Verifizierte Reviews mit Filter-Funktion
+- 🎬 **Smooth Animations** - GSAP & Framer Motion überall
+- 🌙 **Premium Dark Theme** - Glassmorphismus & Neumorphismus Design
+
+### Technische Features:
+- 📱 **Mobile-First Design** - Vollständig responsive (320px - 4K)
+- ⚡ **Optimale Performance** - 421 KB First Load, Static Export
 - 🎯 **SEO-Optimiert** - Meta Tags, Open Graph, Schema.org
-- 🌙 **Dark Theme** - Premium dunkles Design mit Glassmorphismus
-- 🚀 **Schnelle Ladezeiten** - Code Splitting, Lazy Loading
+- 🚀 **Schnelle Ladezeiten** - Code Splitting, Lazy Loading, Image Optimization
+- 🎨 **Custom Design System** - Tailwind mit Custom Colors & Animations
+- 🔒 **Type-Safe** - TypeScript 5 mit strikter Konfiguration
 
 ## 🛠️ Tech Stack
 
@@ -91,23 +98,47 @@ server {
 
 ```
 new-website/
-├── app/                    # Next.js App Router
-│   ├── layout.tsx         # Root Layout mit SEO
-│   ├── page.tsx           # Homepage
-│   └── globals.css        # Globale Styles
-├── components/            # React Komponenten
-│   ├── Hero.tsx          # Hero Section mit 3D
-│   ├── Navigation.tsx    # Haupt-Navigation
-│   ├── ProductCard.tsx   # Produkt-Karten
-│   └── Footer.tsx        # Footer
-├── public/               # Statische Assets
-│   ├── images/          # Bilder
-│   └── models/          # 3D Modelle
-├── package.json
-├── tailwind.config.ts
-├── tsconfig.json
-└── next.config.js
+├── app/                          # Next.js App Router
+│   ├── layout.tsx               # Root Layout mit SEO Metadata
+│   ├── page.tsx                 # Homepage mit allen Sections
+│   └── globals.css              # Globale Styles (Glassmorphism, Neumorphism)
+├── components/                  # React Komponenten
+│   ├── Hero.tsx                # Hero Section mit 3D Auto
+│   ├── Navigation.tsx          # Desktop + Mobile Navigation
+│   ├── ProductCard.tsx         # Produkt-Karten (4 Linien)
+│   ├── Configurator.tsx        # 3D Auto-Konfigurator
+│   ├── CarScene3D.tsx          # 3D Szene für Konfigurator
+│   ├── Product360Viewer.tsx    # 360° Drag-to-Rotate Viewer
+│   ├── ARPreview.tsx           # AR Vorschau mit QR-Code
+│   ├── Reviews.tsx             # Kunden-Bewertungen System
+│   ├── OptimizedImage.tsx      # Image Optimization Helper
+│   └── Footer.tsx              # Footer mit Newsletter
+├── public/                      # Statische Assets
+│   ├── images/                 # Produkt-Bilder
+│   └── models/                 # 3D Modelle (.glb/.gltf)
+├── package.json                 # Dependencies
+├── postcss.config.js           # PostCSS Config
+├── tailwind.config.ts          # Tailwind Custom Theme
+├── tsconfig.json               # TypeScript Config
+├── next.config.js              # Next.js Static Export Config
+└── README.md                   # Diese Datei
 ```
+
+## 📦 Komponenten-Übersicht
+
+### Haupt-Komponenten:
+- **Hero.tsx** - 3D Hero mit Three.js Auto-Modell, Parallax, GSAP Animationen
+- **Configurator.tsx** - Interaktiver Konfigurator mit Echtzeit-Preisberechnung
+- **Product360Viewer.tsx** - 360° Produktansicht mit Drag, Zoom, Auto-Rotation
+- **ARPreview.tsx** - AR UI mit Kamera-Simulation und QR-Code Modal
+- **Reviews.tsx** - Review-System mit Filtern und Star-Ratings
+
+### Helper-Komponenten:
+- **Navigation.tsx** - Sticky Nav mit Blur-Effekt, Hamburger-Menü
+- **ProductCard.tsx** - Neomorph Cards mit Hover-Effekten
+- **CarScene3D.tsx** - 3D Szene für Konfigurator (separiert für Performance)
+- **OptimizedImage.tsx** - Lazy Loading mit Skeleton und Error Handling
+- **Footer.tsx** - Footer mit Newsletter, Social Links, Sitemap
 
 ## 🎨 Design System
 

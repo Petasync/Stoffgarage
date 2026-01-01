@@ -8,17 +8,18 @@
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
-
   body {
     @apply bg-dark-900 text-white antialiased;
+    font-family: var(--font-inter);
     font-feature-settings: 'rlig' 1, 'calt' 1;
   }
 
   html {
     scroll-behavior: smooth;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-poppins);
   }
 }
 
