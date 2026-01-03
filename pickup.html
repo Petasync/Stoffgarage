@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Premium Pickup-Abdeckungen in vier Qualitätsstufen. Wasserdicht, UV-beständig und atmungsaktiv. Finden Sie die perfekte Abdeckung für Ihr Pickup.">
+  <meta name="keywords" content="Pickupabdeckung, Pickup Abdeckung, wasserdichte Pickupabdeckung, Premium Pickupabdeckung">
+
+  <title>Pickup-Abdeckungen | STOFFGARAGE - Premium Fahrzeugabdeckungen</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg">
+</head>
+<body data-category="pickup">
+
+  <!-- Header -->
+  <header>
+    <div class="header-container">
+      <a href="index.html">
+        <img src="assets/images/logo.svg" alt="STOFFGARAGE Logo" class="logo">
+      </a>
+
+      <nav>
+        <button class="menu-toggle" aria-label="Menu öffnen">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+
+        <ul class="nav-menu">
+          <li><a href="index.html">Home</a></li>
+          <li class="dropdown">
+            <span class="dropdown-toggle">
+              Produkte
+              <svg style="width: 16px; height: 16px; display: inline;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </span>
+            <ul class="dropdown-menu">
+              <li><a href="pickup.html">Pickup-Abdeckungen</a></li>
+              <li><a href="van.html">Van-Abdeckungen</a></li>
+              <li><a href="pickup.html">Pickup-Abdeckungen</a></li>
+              <li><a href="wohnmobil.html">Wohnmobil-Abdeckungen</a></li>
+              <li><a href="hagelschutz.html">Hagelschutz</a></li>
+            </ul>
+          </li>
+          <li><a href="ueber-uns.html">Über uns</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Breadcrumb -->
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span>/</span>
+      <span>Pickup-Abdeckungen</span>
+    </div>
+  </div>
+
+  <!-- Page Header -->
+  <section class="section" style="padding-top: 2rem;">
+    <div class="container">
+      <h1 style="font-size: 2.5rem; margin-bottom: 1rem;">Premium Pickup-Abdeckungen</h1>
+      <p style="font-size: 1.125rem; color: var(--text-secondary); max-width: 800px;">
+        Schützen Sie Ihr Fahrzeug mit unseren hochwertigen Pickup-Abdeckungen in vier Qualitätsstufen.
+        Alle Abdeckungen sind wasserdicht, UV-beständig und atmungsaktiv.
+      </p>
+    </div>
+  </section>
+
+  <!-- Configurator & Products -->
+  <section class="section" style="padding-top: 2rem;">
+    <div class="container">
+      <div class="configurator-layout">
+        <!-- Configurator Sidebar -->
+        <aside class="configurator-sidebar">
+          <h3 class="configurator-title">Konfigurator</h3>
+
+          <!-- Quality Selection -->
+          <div class="configurator-section">
+            <label>Qualitätsstufe wählen</label>
+            <div class="radio-group">
+              <label class="radio-option">
+                <input type="radio" name="quality" value="Klassisch">
+                <span>Klassisch</span>
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="quality" value="Praktisch">
+                <span>Praktisch</span>
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="quality" value="Premium">
+                <span>Premium</span>
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="quality" value="Exklusiv">
+                <span>Exklusiv</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Size Selection -->
+          <div class="configurator-section">
+            <label for="size-select">Größe wählen</label>
+            <select id="size-select">
+              <option value="">-- Größe wählen --</option>
+              <option value="S (380-405cm)">S (380-405cm)</option>
+              <option value="M (406-432cm)">M (406-432cm)</option>
+              <option value="L (433-457cm)">L (433-457cm)</option>
+              <option value="XL (458-485cm)">XL (458-485cm)</option>
+            </select>
+          </div>
+
+          <!-- Preview -->
+          <div class="configurator-preview">
+            <h4>Ihre Auswahl</h4>
+            <div id="configurator-preview">
+              <div class="preview-item">
+                <span>Qualität:</span>
+                <strong>Nicht ausgewählt</strong>
+              </div>
+              <div class="preview-item">
+                <span>Größe:</span>
+                <strong>Nicht ausgewählt</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- Request Button -->
+          <button id="request-product" class="btn btn-secondary" style="width: 100%; margin-top: 1.5rem;" disabled>
+            Jetzt anfragen
+          </button>
+        </aside>
+
+        <!-- Products Grid -->
+        <div>
+          <div class="filter-bar">
+            <button class="filter-button active" data-filter="all" data-value="all">Alle</button>
+            <button class="filter-button" data-filter="quality" data-value="Klassisch">Klassisch</button>
+            <button class="filter-button" data-filter="quality" data-value="Praktisch">Praktisch</button>
+            <button class="filter-button" data-filter="quality" data-value="Premium">Premium</button>
+            <button class="filter-button" data-filter="quality" data-value="Exklusiv">Exklusiv</button>
+          </div>
+
+          <div id="products-grid" class="grid grid-3">
+            <!-- Products will be loaded here by JavaScript -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quality Info Section -->
+  <section class="section" style="background-color: var(--bg-secondary);">
+    <div class="container">
+      <div class="section-title">
+        <h2>Unsere Qualitätsstufen</h2>
+        <p>Finden Sie die perfekte Abdeckung für Ihre Bedürfnisse</p>
+      </div>
+
+      <div class="grid grid-2">
+        <div class="card">
+          <h3>Klassisch</h3>
+          <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+            4-lagiges Polypropylen-Material für zuverlässigen Schutz im Alltag
+          </p>
+          <ul style="list-style: none; padding: 0;">
+            <li style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; color: var(--text-secondary);">
+              <svg style="width: 20px; height: 20px; color: var(--accent-primary);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              Wasserdicht
+            </li>
+            <li style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; color: var(--text-secondary);">
+              <svg style="width: 20px; height: 20px; color: var(--accent-primary);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              UV-Schutz
+            </li>
+            <li style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; color: var(--text-secondary);">
+              <svg style="width: 20px; height: 20px; color: var(--accent-primary);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              Atmungsaktiv
+            </li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Praktisch</h3>
+          <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+            5-lagig mit Mikrovlies-Schicht für erhöhten Schutz und Komfort
+          </p>
+          <ul style="list-style: none; padding: 0;">
+            <li style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; color: var(--text-secondary);">
+              <svg style="width: 20px; height: 20px; color: var(--accent-primary);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              Alle Klassisch-Features
+            </li>
+            <li style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; color: var(--text-secondary);">
+              <svg style="width: 20px; height: 20px; color: var(--accent-primary);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              Kratzfest
+            </li>
+            <li style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; color: var(--text-secondary);">
+              <svg style="width: 20px; height: 20px; color: var(--accent-primary);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              Extra Mikrovlies-Schutz
+            </li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Premium</h3>
+          <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+            5-lagige Softshell-Technologie mit Soft-Touch-Oberfläche
+          </p>
+          <ul style="list-style: none; padding: 0;">
+            <li style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; color: var(--text-secondary);">
+              <svg style="width: 20px; height: 20px; color: var(--accent-primary);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              Alle Praktisch-Features
+            </li>
+            <li style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; color: var(--text-secondary);">
+              <svg style="width: 20px; height: 20px; color: var(--accent-primary);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              Soft-Touch-Material
+            </li>
+            <li style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; color: var(--text-secondary);">
+              <svg style="width: 20px; height: 20px; color: var(--accent-primary);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              Premium Softshell
+            </li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Exklusiv</h3>
+          <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+            7-lagiges Premium-Material mit exklusivem Finish
+          </p>
+          <ul style="list-style: none; padding: 0;">
+            <li style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; color: var(--text-secondary);">
+              <svg style="width: 20px; height: 20px; color: var(--accent-primary);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              Alle Premium-Features
+            </li>
+            <li style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; color: var(--text-secondary);">
+              <svg style="width: 20px; height: 20px; color: var(--accent-primary);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              7-lagige Konstruktion
+            </li>
+            <li style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; color: var(--text-secondary);">
+              <svg style="width: 20px; height: 20px; color: var(--accent-primary);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              Premium-Finish
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-section">
+          <h4>STOFFGARAGE</h4>
+          <p style="color: var(--text-secondary); font-size: 0.9375rem;">
+            Ihr Experte für Premium Fahrzeugabdeckungen. Qualität aus Europa.
+          </p>
+        </div>
+
+        <div class="footer-section">
+          <h4>Produkte</h4>
+          <ul>
+            <li><a href="pickup.html">Pickup-Abdeckungen</a></li>
+            <li><a href="van.html">Van-Abdeckungen</a></li>
+            <li><a href="pickup.html">Pickup-Abdeckungen</a></li>
+            <li><a href="wohnmobil.html">Wohnmobil-Abdeckungen</a></li>
+            <li><a href="hagelschutz.html">Hagelschutz</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>Unternehmen</h4>
+          <ul>
+            <li><a href="ueber-uns.html">Über uns</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>Rechtliches</h4>
+          <ul>
+            <li><a href="impressum.html">Impressum</a></li>
+            <li><a href="datenschutz.html">Datenschutz</a></li>
+            <li><a href="agb.html">AGB</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; <span class="current-year">2026</span> STOFFGARAGE. Alle Rechte vorbehalten.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button id="backToTop" aria-label="Nach oben scrollen">
+    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+    </svg>
+  </button>
+
+  <!-- Scripts -->
+  <script src="assets/js/products.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/configurator.js"></script>
+  <script>
+    // Initialize configurator for pickup category
+    window.addEventListener('DOMContentLoaded', function() {
+      window.configurator = new ProductConfigurator('pickup');
+    });
+  </script>
+</body>
+</html>
