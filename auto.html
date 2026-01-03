@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/style.css?v=2.0">
   <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg">
 </head>
 <body data-category="auto">
@@ -73,6 +73,17 @@
         Schützen Sie Ihr Fahrzeug mit unseren hochwertigen Auto-Abdeckungen in vier Qualitätsstufen.
         Alle Abdeckungen sind wasserdicht, UV-beständig und atmungsaktiv.
       </p>
+    </div>
+  </section>
+
+  <!-- 360 Degree Product Viewer -->
+  <section class="section" style="padding: 3rem 0;">
+    <div class="container">
+      <div class="section-title">
+        <h2>360° PRODUKTANSICHT</h2>
+        <p>Interaktive 360-Grad-Ansicht - Ziehen Sie zum Drehen</p>
+      </div>
+      <div id="product-viewer-360" style="max-width: 800px; margin: 0 auto;"></div>
     </div>
   </section>
 
@@ -348,14 +359,22 @@
   </button>
 
   <!-- Scripts -->
-  <script src="assets/js/products.js"></script>
-  <script src="assets/js/car-models.js"></script>
-  <script src="assets/js/main.js"></script>
-  <script src="assets/js/configurator.js"></script>
+  <script src="assets/js/products.js?v=2.0"></script>
+  <script src="assets/js/car-models.js?v=2.0"></script>
+  <script src="assets/js/viewer-360.js?v=2.0"></script>
+  <script src="assets/js/main.js?v=2.0"></script>
+  <script src="assets/js/configurator.js?v=2.0"></script>
   <script>
     // Initialize configurator for auto category
     window.addEventListener('DOMContentLoaded', function() {
       window.configurator = new ProductConfigurator('auto');
+
+      // Initialize 360-degree viewer
+      new Viewer360('product-viewer-360', {
+        frameCount: 36,
+        autoRotate: true,
+        autoRotateSpeed: 50
+      });
     });
   </script>
 </body>
