@@ -1225,3 +1225,84 @@ footer {
     color: black;
   }
 }
+
+/* Car Search Component */
+.car-search-container {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.car-search-input {
+  width: 100%;
+  padding: 1rem;
+  background-color: var(--bg-secondary);
+  border: 2px solid var(--border-color);
+  color: var(--text-primary);
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: var(--transition);
+}
+
+.car-search-input::placeholder {
+  color: var(--text-muted);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.car-search-input:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+}
+
+.car-search-results {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: var(--bg-secondary);
+  border: 2px solid var(--border-color);
+  max-height: 400px;
+  overflow-y: auto;
+  z-index: 100;
+  margin-top: 0.5rem;
+  box-shadow: var(--shadow-lg);
+  display: none;
+}
+
+.search-result-item {
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.search-result-item:last-child {
+  border-bottom: none;
+}
+
+.search-result-item:hover {
+  background-color: var(--bg-tertiary);
+}
+
+.size-recommendation {
+  margin-top: 1rem;
+}
+
+/* Scrollbar for search results */
+.car-search-results::-webkit-scrollbar {
+  width: 8px;
+}
+
+.car-search-results::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+.car-search-results::-webkit-scrollbar-thumb {
+  background: var(--accent-primary);
+}
+
+.car-search-results::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-light);
+}

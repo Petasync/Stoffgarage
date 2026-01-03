@@ -1,5 +1,5 @@
-// STOFFGARAGE - Product Configurator
-// Handles product filtering, selection, and configurator functionality
+// STOFFGARAGE - Enhanced Product Configurator
+// With car model search and size recommendation
 
 class ProductConfigurator {
   constructor(category) {
@@ -8,12 +8,14 @@ class ProductConfigurator {
     this.selectedQuality = null;
     this.selectedSize = null;
     this.selectedVehicleType = null;
+    this.selectedCarModel = null;
 
     this.init();
   }
 
   init() {
     this.setupEventListeners();
+    this.setupCarSearch();
     this.loadFromURL();
     this.renderProducts();
     this.updatePreview();
@@ -53,6 +55,109 @@ class ProductConfigurator {
       requestButton.addEventListener('click', () => {
         this.handleProductRequest();
       });
+    }
+  }
+
+  // New: Car Model Search
+  setupCarSearch() {
+    const searchInput = document.getElementById('car-search');
+    const searchResults = document.getElementById('car-search-results');
+
+    if (!searchInput || !searchResults) return;
+
+    searchInput.addEventListener('input', (e) => {
+      const query = e.target.value.trim();
+
+      if (query.length < 2) {
+        searchResults.innerHTML = '';
+        searchResults.style.display = 'none';
+        return;
+      }
+
+      // Search in car models database
+      if (typeof searchModels === 'function') {
+        const results = searchModels(query);
+        this.displaySearchResults(results, searchResults);
+      }
+    });
+
+    // Click outside to close
+    document.addEventListener('click', (e) => {
+      if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
+        searchResults.style.display = 'none';
+      }
+    });
+  }
+
+  displaySearchResults(results, container) {
+    if (results.length === 0) {
+      container.innerHTML = '<div style="padding:1rem;color:var(--text-muted);">Kein Fahrzeug gefunden</div>';
+      container.style.display = 'block';
+      return;
+    }
+
+    let html = '';
+    results.forEach(group => {
+      group.models.forEach(model => {
+        html += `
+          <div class="search-result-item" data-size="${group.size}" data-make="${model.make}" data-model="${model.model}">
+            <div style="font-weight:700;color:var(--text-primary);">${model.make} ${model.model}</div>
+            <div style="font-size:0.875rem;color:var(--text-secondary);">Länge: ${model.length}cm → Größe ${group.size}</div>
+          </div>
+        `;
+      });
+    });
+
+    container.innerHTML = html;
+    container.style.display = 'block';
+
+    // Add click handlers
+    container.querySelectorAll('.search-result-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const size = item.dataset.size;
+        const make = item.dataset.make;
+        const model = item.dataset.model;
+
+        this.selectCarModel(make, model, size);
+        container.style.display = 'none';
+      });
+    });
+  }
+
+  selectCarModel(make, model, size) {
+    this.selectedCarModel = `${make} ${model}`;
+    this.selectedSize = size;
+
+    // Update UI
+    const searchInput = document.getElementById('car-search');
+    if (searchInput) {
+      searchInput.value = `${make} ${model}`;
+    }
+
+    const sizeSelect = document.getElementById('size-select');
+    if (sizeSelect) {
+      sizeSelect.value = size;
+    }
+
+    // Show recommendation message
+    this.showRecommendation(make, model, size);
+
+    this.updateSelection();
+  }
+
+  showRecommendation(make, model, size) {
+    const recommendationDiv = document.getElementById('size-recommendation');
+    if (recommendationDiv) {
+      recommendationDiv.innerHTML = `
+        <div style="padding:1rem;background:var(--bg-secondary);border:2px solid var(--accent-primary);margin-top:1rem;">
+          <div style="font-weight:700;margin-bottom:0.5rem;color:var(--accent-primary);text-transform:uppercase;font-size:0.875rem;">
+            EMPFEHLUNG
+          </div>
+          <div style="color:var(--text-primary);">
+            Für Ihren <strong>${make} ${model}</strong> empfehlen wir Größe <strong>${size}</strong>
+          </div>
+        </div>
+      `;
     }
   }
 
@@ -96,6 +201,7 @@ class ProductConfigurator {
     if (this.selectedQuality) params.set('quality', this.selectedQuality);
     if (this.selectedSize) params.set('size', this.selectedSize);
     if (this.selectedVehicleType) params.set('vehicleType', this.selectedVehicleType);
+    if (this.selectedCarModel) params.set('car', this.selectedCarModel);
 
     const newURL = `${window.location.pathname}${params.toString() ? '?' + params.toString() : ''}`;
     window.history.replaceState({}, '', newURL);
@@ -132,7 +238,7 @@ class ProductConfigurator {
     const productsToShow = filtered.length > 0 ? filtered : this.currentProducts;
 
     if (productsToShow.length === 0) {
-      productsGrid.innerHTML = '<p class="text-center" style="grid-column: 1/-1; color: var(--text-secondary);">Keine Produkte gefunden. Bitte ändern Sie Ihre Filterauswahl.</p>';
+      productsGrid.innerHTML = '<p class="text-center" style="grid-column: 1/-1; color: var(--text-secondary);text-transform:uppercase;letter-spacing:0.05em;">Keine Produkte gefunden</p>';
       return;
     }
 
@@ -157,7 +263,7 @@ class ProductConfigurator {
       const iconPath = featureIcons[feature] || featureIcons['wasserdicht'];
       return `
         <div class="feature-badge">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
             ${iconPath}
           </svg>
           <span>${this.getFeatureLabel(feature)}</span>
@@ -178,14 +284,14 @@ class ProductConfigurator {
         <div class="product-features">
           ${featuresHTML}
         </div>
-        <p style="color: var(--text-secondary); font-size: 0.875rem; margin-bottom: 1rem;">
+        <p style="color: var(--text-secondary); font-size: 0.875rem; margin-bottom: 1rem;line-height:1.6;">
           ${product.description}
         </p>
-        <p style="color: var(--text-muted); font-size: 0.875rem; margin-bottom: 1rem;">
-          <strong>Material:</strong> ${product.material}
+        <p style="color: var(--text-muted); font-size: 0.875rem; margin-bottom: 1rem;text-transform:uppercase;">
+          <strong style="color:var(--text-primary);">MATERIAL:</strong> ${product.material}
         </p>
-        <button class="btn btn-primary" onclick="selectProduct('${product.id}')">
-          Jetzt anfragen
+        <button class="btn btn-primary" style="width:100%;" onclick="selectProduct('${product.id}')">
+          JETZT ANFRAGEN
         </button>
       </div>
     `;
@@ -195,11 +301,11 @@ class ProductConfigurator {
 
   getCategoryIcon() {
     const icons = {
-      auto: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/>',
-      van: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>',
-      pickup: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"/>',
-      wohnmobil: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>',
-      hagelschutz: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>'
+      auto: '<path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/>',
+      van: '<rect x="4" y="6" width="16" height="12" stroke-width="2" /><path stroke-width="2" d="M8 12h8M4 18h16"/>',
+      pickup: '<path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"/>',
+      wohnmobil: '<path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>',
+      hagelschutz: '<circle cx="12" cy="12" r="10" stroke-width="2"/><path stroke-width="2" d="M12 6v6l4 2"/>'
     };
 
     return icons[this.category] || icons.auto;
@@ -207,18 +313,18 @@ class ProductConfigurator {
 
   getFeatureLabel(feature) {
     const labels = {
-      'wasserdicht': 'Wasserdicht',
-      'uv-schutz': 'UV-Schutz',
-      'atmungsaktiv': 'Atmungsaktiv',
-      'kratzfest': 'Kratzfest',
-      'elastisch': 'Elastisch',
-      'softtouch': 'Soft Touch',
-      'premium-finish': 'Premium',
-      'seitliche-oeffnung': 'Seitliche Öffnung',
-      'hagelschutz-klasse-3': 'Klasse 3'
+      'wasserdicht': 'WASSERDICHT',
+      'uv-schutz': 'UV-SCHUTZ',
+      'atmungsaktiv': 'ATMUNGSAKTIV',
+      'kratzfest': 'KRATZFEST',
+      'elastisch': 'ELASTISCH',
+      'softtouch': 'SOFT TOUCH',
+      'premium-finish': 'PREMIUM',
+      'seitliche-oeffnung': 'SEITENZUGANG',
+      'hagelschutz-klasse-3': 'KLASSE 3'
     };
 
-    return labels[feature] || feature;
+    return labels[feature] || feature.toUpperCase();
   }
 
   highlightSelectedProduct() {
@@ -240,29 +346,41 @@ class ProductConfigurator {
     const preview = document.getElementById('configurator-preview');
     if (!preview) return;
 
-    const quality = this.selectedQuality || 'Nicht ausgewählt';
-    const size = this.selectedSize || 'Nicht ausgewählt';
+    const quality = this.selectedQuality || 'NICHT AUSGEWÄHLT';
+    const size = this.selectedSize || 'NICHT AUSGEWÄHLT';
+    const car = this.selectedCarModel || '';
     const vehicleType = this.selectedVehicleType || '';
 
-    let html = `
+    let html = '';
+
+    if (car) {
+      html += `
+        <div class="preview-item">
+          <span>FAHRZEUG:</span>
+          <strong>${car}</strong>
+        </div>
+      `;
+    }
+
+    if (vehicleType) {
+      html += `
+        <div class="preview-item">
+          <span>TYP:</span>
+          <strong>${vehicleType}</strong>
+        </div>
+      `;
+    }
+
+    html += `
       <div class="preview-item">
-        <span>Qualität:</span>
+        <span>QUALITÄT:</span>
         <strong>${quality}</strong>
       </div>
       <div class="preview-item">
-        <span>Größe:</span>
+        <span>GRÖSSE:</span>
         <strong>${size}</strong>
       </div>
     `;
-
-    if (vehicleType) {
-      html = `
-        <div class="preview-item">
-          <span>Fahrzeugtyp:</span>
-          <strong>${vehicleType}</strong>
-        </div>
-      ` + html;
-    }
 
     preview.innerHTML = html;
 
@@ -293,13 +411,16 @@ class ProductConfigurator {
     }
 
     // Build product info string
-    const productInfo = `${selectedProduct.quality} - ${selectedProduct.size}`;
+    let productInfo = `${selectedProduct.quality} - ${selectedProduct.size}`;
+    if (this.selectedCarModel) {
+      productInfo = `${this.selectedCarModel} - ` + productInfo;
+    }
 
     // Redirect to contact page with pre-filled data
     const params = new URLSearchParams({
       product: productInfo,
       category: this.category,
-      vehicle: this.selectedVehicleType || ''
+      vehicle: this.selectedVehicleType || this.selectedCarModel || ''
     });
 
     window.location.href = `kontakt.html?${params.toString()}`;

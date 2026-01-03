@@ -84,6 +84,22 @@
         <aside class="configurator-sidebar">
           <h3 class="configurator-title">Konfigurator</h3>
 
+          <!-- Car Model Search -->
+          <div class="configurator-section">
+            <label for="car-search">IHR FAHRZEUG (OPTIONAL)</label>
+            <div class="car-search-container">
+              <input
+                type="text"
+                id="car-search"
+                class="car-search-input"
+                placeholder="z.B. VW Golf, BMW 3er..."
+                autocomplete="off"
+              />
+              <div id="car-search-results" class="car-search-results"></div>
+            </div>
+            <div id="size-recommendation" class="size-recommendation"></div>
+          </div>
+
           <!-- Quality Selection -->
           <div class="configurator-section">
             <label>Qualitätsstufe wählen</label>
@@ -333,6 +349,7 @@
 
   <!-- Scripts -->
   <script src="assets/js/products.js"></script>
+  <script src="assets/js/car-models.js"></script>
   <script src="assets/js/main.js"></script>
   <script src="assets/js/configurator.js"></script>
   <script>
