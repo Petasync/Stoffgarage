@@ -2,7 +2,7 @@
 // Organized by size category for configurator
 
 const carModels = {
-  // Größe S (380-405cm) - Kleinwagen & Kompaktwagen
+  // Größe S (380-405cm) - Kleinwagen
   S: {
     size: 'S (380-405cm)',
     models: [
@@ -10,10 +10,8 @@ const carModels = {
       { make: 'VW', model: 'Polo', length: 404 },
       { make: 'VW', model: 'up!', length: 361 },
       { make: 'Audi', model: 'A1', length: 404 },
-      { make: 'BMW', model: '1er (F40)', length: 429 },
-      { make: 'Mercedes-Benz', model: 'A-Klasse (W177)', length: 439 },
       { make: 'Mini', model: 'Cooper 3-Türer', length: 384 },
-      { make: 'Opel', model: 'Corsa', length: 406 },
+      { make: 'Smart', model: 'ForFour', length: 353 },
       { make: 'Ford', model: 'Fiesta', length: 404 },
 
       // Japanische Hersteller
@@ -21,48 +19,51 @@ const carModels = {
       { make: 'Mazda', model: '2', length: 405 },
       { make: 'Honda', model: 'Jazz', length: 399 },
       { make: 'Suzuki', model: 'Swift', length: 384 },
+      { make: 'Suzuki', model: 'Ignis', length: 377 },
 
       // Französische & Italienische Hersteller
-      { make: 'Peugeot', model: '208', length: 406 },
       { make: 'Renault', model: 'Clio', length: 405 },
       { make: 'Fiat', model: '500', length: 363 },
+      { make: 'Fiat', model: 'Panda', length: 365 },
       { make: 'Citroën', model: 'C3', length: 399 },
-
-      // Weitere
-      { make: 'Seat', model: 'Ibiza', length: 406 },
-      { make: 'Skoda', model: 'Fabia', length: 415 }
+      { make: 'Dacia', model: 'Sandero', length: 405 }
     ]
   },
 
-  // Größe M (406-432cm) - Kompaktklasse & untere Mittelklasse
+  // Größe M (406-432cm) - Kompaktklasse
   M: {
     size: 'M (406-432cm)',
     models: [
       // Deutsche Hersteller
       { make: 'VW', model: 'Golf', length: 430 },
       { make: 'VW', model: 'ID.3', length: 426 },
-      { make: 'Audi', model: 'A3', length: 437 },
-      { make: 'BMW', model: '2er Active Tourer', length: 442 },
-      { make: 'Mercedes-Benz', model: 'B-Klasse', length: 446 },
-      { make: 'Opel', model: 'Astra', length: 436 },
-      { make: 'Ford', model: 'Focus', length: 437 },
+      { make: 'VW', model: 'T-Roc', length: 426 },
+      { make: 'BMW', model: '1er (F40)', length: 429 },
+      { make: 'Opel', model: 'Corsa', length: 406 },
+      { make: 'Opel', model: 'Grandland', length: 446 },
+      { make: 'Mini', model: 'Clubman', length: 427 },
 
       // Japanische Hersteller
-      { make: 'Toyota', model: 'Corolla', length: 446 },
-      { make: 'Mazda', model: '3', length: 447 },
-      { make: 'Honda', model: 'Civic', length: 453 },
-      { make: 'Nissan', model: 'Leaf', length: 445 },
+      { make: 'Toyota', model: 'C-HR', length: 436 },
+      { make: 'Mazda', model: 'CX-30', length: 434 },
+      { make: 'Nissan', model: 'Juke', length: 421 },
+      { make: 'Honda', model: 'HR-V', length: 434 },
 
       // Französische Hersteller
-      { make: 'Peugeot', model: '308', length: 434 },
-      { make: 'Renault', model: 'Mégane', length: 433 },
+      { make: 'Peugeot', model: '208', length: 406 },
+      { make: 'Peugeot', model: '2008', length: 430 },
+      { make: 'Renault', model: 'Captur', length: 421 },
       { make: 'Citroën', model: 'C4', length: 431 },
+      { make: 'Citroën', model: 'C4 Cactus', length: 420 },
 
       // Weitere
+      { make: 'Seat', model: 'Ibiza', length: 406 },
       { make: 'Seat', model: 'Leon', length: 430 },
-      { make: 'Skoda', model: 'Octavia', length: 463 },
-      { make: 'Hyundai', model: 'i30', length: 435 },
-      { make: 'Kia', model: 'Ceed', length: 434 }
+      { make: 'Seat', model: 'Arona', length: 418 },
+      { make: 'Skoda', model: 'Fabia', length: 415 },
+      { make: 'Skoda', model: 'Kamiq', length: 426 },
+      { make: 'Hyundai', model: 'Kona', length: 419 },
+      { make: 'Kia', model: 'Stonic', length: 410 }
     ]
   },
 
@@ -71,20 +72,52 @@ const carModels = {
     size: 'L (433-457cm)',
     models: [
       // Deutsche Hersteller
-      { make: 'VW', model: 'Passat', length: 476 },
       { make: 'VW', model: 'ID.4', length: 458 },
+      { make: 'BMW', model: 'X1', length: 443 },
+      { make: 'BMW', model: 'X3', length: 452 },
+      { make: 'Audi', model: 'Q3', length: 451 },
+      { make: 'Mercedes-Benz', model: 'GLA', length: 441 },
+      { make: 'Mercedes-Benz', model: 'GLB', length: 463 },
+
+      // Japanische Hersteller
+      { make: 'Toyota', model: 'RAV4', length: 458 },
+      { make: 'Mazda', model: 'CX-5', length: 454 },
+      { make: 'Honda', model: 'CR-V', length: 453 },
+      { make: 'Nissan', model: 'Qashqai', length: 443 },
+
+      // Weitere
+      { make: 'Skoda', model: 'Karoq', length: 444 },
+      { make: 'Volvo', model: 'XC40', length: 442 },
+      { make: 'Peugeot', model: '3008', length: 447 }
+    ]
+  },
+
+  // Größe XL (458-485cm) - Obere Mittelklasse & Große SUVs
+  XL: {
+    size: 'XL (458-485cm)',
+    models: [
+      // Deutsche Hersteller
+      { make: 'VW', model: 'Passat', length: 476 },
+      { make: 'VW', model: 'Arteon', length: 488 },
       { make: 'Audi', model: 'A4', length: 472 },
       { make: 'Audi', model: 'A5 Sportback', length: 477 },
-      { make: 'BMW', model: '3er Limousine (G20)', length: 470 },
+      { make: 'Audi', model: 'A6', length: 494 },
+      { make: 'Audi', model: 'Q5', length: 467 },
+      { make: 'BMW', model: '3er Limousine', length: 470 },
       { make: 'BMW', model: '4er Coupé', length: 471 },
-      { make: 'Mercedes-Benz', model: 'C-Klasse Limousine', length: 474 },
+      { make: 'BMW', model: '5er Limousine', length: 493 },
+      { make: 'BMW', model: 'X5', length: 493 },
+      { make: 'Mercedes-Benz', model: 'C-Klasse', length: 474 },
+      { make: 'Mercedes-Benz', model: 'E-Klasse', length: 493 },
       { make: 'Mercedes-Benz', model: 'GLC', length: 476 },
-      { make: 'Opel', model: 'Insignia', length: 489 },
+      { make: 'Mercedes-Benz', model: 'GLE', length: 497 },
+      { make: 'Porsche', model: 'Cayenne', length: 494 },
 
       // Japanische Hersteller
       { make: 'Toyota', model: 'Camry', length: 488 },
       { make: 'Mazda', model: '6', length: 489 },
       { make: 'Honda', model: 'Accord', length: 489 },
+      { make: 'Lexus', model: 'RX', length: 490 },
 
       // Französische Hersteller
       { make: 'Peugeot', model: '508', length: 476 },
@@ -92,38 +125,9 @@ const carModels = {
 
       // Weitere
       { make: 'Skoda', model: 'Superb', length: 491 },
-      { make: 'Tesla', model: 'Model 3', length: 469 },
-      { make: 'Volvo', model: 'S60', length: 475 }
-    ]
-  },
-
-  // Größe XL (458-485cm) - Obere Mittelklasse & Oberklasse
-  XL: {
-    size: 'XL (458-485cm)',
-    models: [
-      // Deutsche Hersteller
-      { make: 'VW', model: 'Arteon', length: 488 },
-      { make: 'Audi', model: 'A6', length: 494 },
-      { make: 'Audi', model: 'A7 Sportback', length: 498 },
-      { make: 'Audi', model: 'Q7', length: 505 },
-      { make: 'BMW', model: '5er Limousine (G30)', length: 493 },
-      { make: 'BMW', model: 'X5', length: 493 },
-      { make: 'Mercedes-Benz', model: 'E-Klasse Limousine', length: 493 },
-      { make: 'Mercedes-Benz', model: 'GLE', length: 497 },
-      { make: 'Porsche', model: 'Panamera', length: 502 },
-      { make: 'Porsche', model: 'Cayenne', length: 494 },
-
-      // Premium & Luxus
-      { make: 'BMW', model: '7er (G70)', length: 530 },
-      { make: 'Audi', model: 'A8', length: 518 },
-      { make: 'Mercedes-Benz', model: 'S-Klasse', length: 518 },
-      { make: 'Tesla', model: 'Model S', length: 502 },
-      { make: 'Tesla', model: 'Model X', length: 505 },
-
-      // SUVs
-      { make: 'VW', model: 'Touareg', length: 488 },
-      { make: 'Volvo', model: 'XC90', length: 498 },
-      { make: 'Land Rover', model: 'Discovery', length: 498 }
+      { make: 'Volvo', model: 'S60', length: 475 },
+      { make: 'Volvo', model: 'XC60', length: 476 },
+      { make: 'Tesla', model: 'Model 3', length: 469 }
     ]
   },
 
@@ -132,14 +136,13 @@ const carModels = {
     size: 'M (450-485cm)',
     models: [
       { make: 'VW', model: 'Caddy', length: 472 },
-      { make: 'VW', model: 'Multivan T6.1', length: 497 },
-      { make: 'Mercedes-Benz', model: 'V-Klasse kompakt', length: 511 },
-      { make: 'Ford', model: 'Tourneo Custom', length: 516 },
-      { make: 'Opel', model: 'Zafira Life M', length: 495 },
-      { make: 'Peugeot', model: 'Traveller Compact', length: 495 },
-      { make: 'Citroën', model: 'SpaceTourer M', length: 495 },
-      { make: 'Toyota', model: 'Proace Verso Medium', length: 495 },
-      { make: 'Nissan', model: 'Primastar', length: 495 }
+      { make: 'VW', model: 'Caddy Maxi', length: 483 },
+      { make: 'Ford', model: 'Tourneo Connect', length: 463 },
+      { make: 'Opel', model: 'Combo Life XL', length: 475 },
+      { make: 'Citroën', model: 'Berlingo XL', length: 475 },
+      { make: 'Peugeot', model: 'Rifter Long', length: 475 },
+      { make: 'Mercedes-Benz', model: 'Citan Tourer', length: 454 },
+      { make: 'Renault', model: 'Kangoo', length: 448 }
     ]
   },
 
@@ -147,15 +150,18 @@ const carModels = {
   VAN_L: {
     size: 'L (480-530cm)',
     models: [
-      { make: 'VW', model: 'Multivan T6.1 Lang', length: 539 },
-      { make: 'VW', model: 'Crafter', length: 599 },
-      { make: 'Mercedes-Benz', model: 'V-Klasse lang', length: 537 },
-      { make: 'Mercedes-Benz', model: 'Sprinter', length: 600 },
-      { make: 'Ford', model: 'Transit Custom Lang', length: 536 },
-      { make: 'Ford', model: 'Transit', length: 607 },
+      { make: 'VW', model: 'Multivan T6.1', length: 497 },
+      { make: 'VW', model: 'Caravelle', length: 497 },
+      { make: 'Mercedes-Benz', model: 'V-Klasse kompakt', length: 511 },
+      { make: 'Ford', model: 'Tourneo Custom', length: 516 },
+      { make: 'Opel', model: 'Zafira Life M', length: 495 },
       { make: 'Opel', model: 'Zafira Life L', length: 530 },
+      { make: 'Peugeot', model: 'Traveller Compact', length: 495 },
       { make: 'Peugeot', model: 'Traveller Long', length: 530 },
-      { make: 'Fiat', model: 'Ducato', length: 600 }
+      { make: 'Citroën', model: 'SpaceTourer M', length: 495 },
+      { make: 'Citroën', model: 'SpaceTourer L', length: 530 },
+      { make: 'Toyota', model: 'Proace Verso Medium', length: 495 },
+      { make: 'Nissan', model: 'Primastar', length: 495 }
     ]
   },
 
@@ -166,10 +172,10 @@ const carModels = {
       { make: 'VW', model: 'Amarok', length: 523 },
       { make: 'Mercedes-Benz', model: 'X-Klasse', length: 524 },
       { make: 'Nissan', model: 'Navara Double Cab', length: 521 },
-      { make: 'Toyota', model: 'Hilux Double Cab', length: 530 },
-      { make: 'Ford', model: 'Ranger Double Cab', length: 531 },
       { make: 'Mitsubishi', model: 'L200 Double Cab', length: 519 },
-      { make: 'Isuzu', model: 'D-Max Double Cab', length: 530 }
+      { make: 'Isuzu', model: 'D-Max Double Cab', length: 530 },
+      { make: 'Ssangyong', model: 'Musso Grand', length: 519 },
+      { make: 'Fiat', model: 'Fullback Double Cab', length: 523 }
     ]
   },
 
@@ -177,13 +183,12 @@ const carModels = {
   PICKUP_L: {
     size: 'L (520-560cm)',
     models: [
+      { make: 'Toyota', model: 'Hilux Double Cab', length: 530 },
+      { make: 'Ford', model: 'Ranger Double Cab', length: 531 },
       { make: 'Ford', model: 'Ranger Raptor', length: 543 },
-      { make: 'Ford', model: 'F-150', length: 586 },
-      { make: 'RAM', model: '1500 Crew Cab', length: 579 },
-      { make: 'Toyota', model: 'Tundra Crew Max', length: 583 },
-      { make: 'Nissan', model: 'Titan Crew Cab', length: 578 },
-      { make: 'Chevrolet', model: 'Silverado 1500', length: 583 },
-      { make: 'GMC', model: 'Sierra 1500', length: 583 }
+      { make: 'Toyota', model: 'Hilux Extra Cab', length: 534 },
+      { make: 'Nissan', model: 'Navara King Cab', length: 534 },
+      { make: 'Mazda', model: 'BT-50 Double Cab', length: 530 }
     ]
   },
 

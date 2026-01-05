@@ -988,6 +988,7 @@ footer {
 .spinner {
   border: 3px solid var(--border-color);
   border-top: 3px solid var(--accent-primary);
+  border-radius: 50%;
   width: 40px;
   height: 40px;
   animation: spin 1s linear infinite;
@@ -1305,4 +1306,122 @@ footer {
 
 .car-search-results::-webkit-scrollbar-thumb:hover {
   background: var(--accent-light);
+}
+
+/* 360 Degree Viewer - Enhanced */
+.viewer-360-container {
+  position: relative;
+  width: 100%;
+  background-color: var(--bg-secondary);
+  border: 2px solid var(--border-color);
+  overflow: hidden;
+}
+
+.viewer-360-canvas {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+  cursor: grab;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.viewer-360-canvas:active {
+  cursor: grabbing;
+}
+
+.viewer-360-frame {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+
+.viewer-360-loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 10;
+}
+
+.viewer-controls {
+  display: flex;
+  gap: 0;
+  background-color: var(--bg-secondary);
+  border-top: 2px solid var(--border-color);
+}
+
+.viewer-btn {
+  flex: 1;
+  background: var(--bg-card);
+  border: none;
+  border-right: 1px solid var(--border-color);
+  color: var(--text-primary);
+  padding: 1rem;
+  cursor: pointer;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.viewer-btn:last-child {
+  border-right: none;
+}
+
+.viewer-btn:hover {
+  background: var(--accent-primary);
+}
+
+.viewer-btn:active {
+  background: var(--accent-dark);
+}
+
+.viewer-info {
+  background-color: var(--bg-primary);
+  padding: 0.75rem;
+  text-align: center;
+  border-top: 1px solid var(--border-color);
+}
+
+/* Fullscreen mode */
+.viewer-360-container:fullscreen {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-primary);
+}
+
+.viewer-360-container:fullscreen .viewer-360-canvas {
+  flex: 1;
+  height: auto;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .viewer-360-canvas {
+    height: 350px;
+  }
+
+  .viewer-controls {
+    flex-wrap: wrap;
+  }
+
+  .viewer-btn {
+    flex: 1 1 50%;
+  }
+}
+
+@media (max-width: 480px) {
+  .viewer-360-canvas {
+    height: 280px;
+  }
 }
