@@ -32,10 +32,9 @@ class Viewer3D {
   async init() {
     this.createContainer();
     this.createCarSelector();
-    await this.loadThreeJS();
-    this.setupScene();
+    await this.setupScene();
     this.setupLighting();
-    this.setupControls();
+    await this.setupControls();
     this.animate();
   }
 
@@ -222,39 +221,13 @@ class Viewer3D {
     await this.load3DModel(car.bodyType);
   }
 
-  async loadThreeJS() {
-    return new Promise((resolve, reject) => {
-      if (window.THREE) {
-        resolve();
-        return;
-      }
-
-      // Load Three.js from CDN
-      const script = document.createElement('script');
-      script.src = 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js';
-      script.type = 'module';
-      script.onload = () => {
-        // Also load OrbitControls and GLTFLoader
-        import('https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/controls/OrbitControls.js')
-          .then(module => {
-            window.OrbitControls = module.OrbitControls;
-            return import('https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/loaders/GLTFLoader.js');
-          })
-          .then(module => {
-            window.GLTFLoader = module.GLTFLoader;
-            resolve();
-          })
-          .catch(reject);
-      };
-      script.onerror = reject;
-      document.head.appendChild(script);
-    });
-  }
-
   async setupScene() {
-    // Dynamic import of Three.js
-    const THREE = await import('https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js');
-    window.THREE = THREE;
+    // Dynamic import of Three.js (only if not already loaded)
+    if (!window.THREE) {
+      const THREE = await import('https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js');
+      window.THREE = THREE;
+    }
+    const THREE = window.THREE;
 
     // Scene
     this.scene = new THREE.Scene();
@@ -317,9 +290,13 @@ class Viewer3D {
   }
 
   async setupControls() {
-    const { OrbitControls } = await import('https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/controls/OrbitControls.js');
+    // Load OrbitControls if not already loaded
+    if (!window.OrbitControls) {
+      const module = await import('https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/controls/OrbitControls.js');
+      window.OrbitControls = module.OrbitControls;
+    }
 
-    this.controls = new OrbitControls(this.camera, this.renderer.domElement);
+    this.controls = new window.OrbitControls(this.camera, this.renderer.domElement);
     this.controls.enableDamping = true;
     this.controls.dampingFactor = 0.05;
     this.controls.enableZoom = this.options.enableZoom;
@@ -342,8 +319,12 @@ class Viewer3D {
     this.showLoading();
 
     try {
-      const { GLTFLoader } = await import('https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/loaders/GLTFLoader.js');
-      const loader = new GLTFLoader();
+      // Load GLTFLoader if not already loaded
+      if (!window.GLTFLoader) {
+        const module = await import('https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/loaders/GLTFLoader.js');
+        window.GLTFLoader = module.GLTFLoader;
+      }
+      const loader = new window.GLTFLoader();
 
       // Remove existing models
       if (this.carModel) {
