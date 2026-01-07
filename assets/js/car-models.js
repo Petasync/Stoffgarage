@@ -7,26 +7,26 @@ const carModels = {
     size: 'S (380-405cm)',
     models: [
       // Deutsche Hersteller
-      { make: 'VW', model: 'Polo', length: 404 },
-      { make: 'VW', model: 'up!', length: 361 },
-      { make: 'Audi', model: 'A1', length: 404 },
-      { make: 'Mini', model: 'Cooper 3-Türer', length: 384 },
-      { make: 'Smart', model: 'ForFour', length: 353 },
-      { make: 'Ford', model: 'Fiesta', length: 404 },
+      { make: 'VW', model: 'Polo', length: 404, bodyType: 'hatchback' },
+      { make: 'VW', model: 'up!', length: 361, bodyType: 'hatchback' },
+      { make: 'Audi', model: 'A1', length: 404, bodyType: 'hatchback' },
+      { make: 'Mini', model: 'Cooper 3-Türer', length: 384, bodyType: 'hatchback' },
+      { make: 'Smart', model: 'ForFour', length: 353, bodyType: 'hatchback' },
+      { make: 'Ford', model: 'Fiesta', length: 404, bodyType: 'hatchback' },
 
       // Japanische Hersteller
-      { make: 'Toyota', model: 'Yaris', length: 395 },
-      { make: 'Mazda', model: '2', length: 405 },
-      { make: 'Honda', model: 'Jazz', length: 399 },
-      { make: 'Suzuki', model: 'Swift', length: 384 },
-      { make: 'Suzuki', model: 'Ignis', length: 377 },
+      { make: 'Toyota', model: 'Yaris', length: 395, bodyType: 'hatchback' },
+      { make: 'Mazda', model: '2', length: 405, bodyType: 'hatchback' },
+      { make: 'Honda', model: 'Jazz', length: 399, bodyType: 'hatchback' },
+      { make: 'Suzuki', model: 'Swift', length: 384, bodyType: 'hatchback' },
+      { make: 'Suzuki', model: 'Ignis', length: 377, bodyType: 'hatchback' },
 
       // Französische & Italienische Hersteller
-      { make: 'Renault', model: 'Clio', length: 405 },
-      { make: 'Fiat', model: '500', length: 363 },
-      { make: 'Fiat', model: 'Panda', length: 365 },
-      { make: 'Citroën', model: 'C3', length: 399 },
-      { make: 'Dacia', model: 'Sandero', length: 405 }
+      { make: 'Renault', model: 'Clio', length: 405, bodyType: 'hatchback' },
+      { make: 'Fiat', model: '500', length: 363, bodyType: 'hatchback' },
+      { make: 'Fiat', model: 'Panda', length: 365, bodyType: 'hatchback' },
+      { make: 'Citroën', model: 'C3', length: 399, bodyType: 'hatchback' },
+      { make: 'Dacia', model: 'Sandero', length: 405, bodyType: 'hatchback' }
     ]
   },
 
