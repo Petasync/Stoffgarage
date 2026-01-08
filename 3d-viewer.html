@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Interaktiver 3D Viewer für STOFFGARAGE Fahrzeugabdeckungen. Sehen Sie wie unsere Abdeckungen auf Ihrem Fahrzeug aussehen.">
+    <title>3D Viewer - STOFFGARAGE Premium Fahrzeugabdeckungen</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" type="image/png" href="images/ChatGPT-Image-15.-Dez.-2025,-14_53_41.png">
+
+    <style>
+        /* 3D Viewer Specific Styles */
+        .viewer-container {
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            margin: 40px 0;
+        }
+
+        .viewer-3d-wrapper {
+            min-height: 700px;
+            position: relative;
+        }
+
+        .viewer-3d-selector {
+            background-color: #f8f9fa;
+            padding: 30px;
+            border-bottom: 2px solid #D3DADC;
+        }
+
+        .selector-header h3 {
+            font-size: 20pt;
+            color: #36474F;
+            margin-bottom: 10px;
+        }
+
+        .car-search-input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #D3DADC;
+            border-radius: 5px;
+            font-size: 14pt;
+            font-family: 'Tahoma', Arial, sans-serif;
+            transition: border-color 0.3s ease;
+        }
+
+        .car-search-input:focus {
+            outline: none;
+            border-color: #00BFBF;
+        }
+
+        .car-search-results {
+            max-height: 300px;
+            overflow-y: auto;
+            margin-top: 10px;
+        }
+
+        .car-result-item {
+            padding: 15px;
+            border: 1px solid #D3DADC;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            background-color: #fff;
+            transition: all 0.3s ease;
+        }
+
+        .car-result-item:hover {
+            border-color: #00BFBF;
+            background-color: rgba(0, 191, 191, 0.05);
+        }
+
+        .selected-car-info {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border: 2px solid #00BFBF;
+            border-radius: 5px;
+            display: none;
+        }
+
+        .selected-car-info.active {
+            display: block;
+        }
+
+        .viewer-3d-canvas-container {
+            position: relative;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            min-height: 600px;
+        }
+
+        #viewer-3d-canvas {
+            width: 100%;
+            height: 600px;
+            display: block;
+        }
+
+        .viewer-3d-loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            display: none;
+        }
+
+        .viewer-3d-loading.active {
+            display: block;
+        }
+
+        .spinner {
+            width: 60px;
+            height: 60px;
+            border: 5px solid #D3DADC;
+            border-top-color: #00BFBF;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .viewer-3d-hint {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 11pt;
+        }
+
+        .viewer-3d-controls {
+            background-color: #36474F;
+            padding: 20px;
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .viewer-btn {
+            display: flex;
+            align-items: center;
+            padding: 12px 20px;
+            background-color: #00BFBF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 12pt;
+            font-family: 'Tahoma', Arial, sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .viewer-btn:hover {
+            background-color: #009999;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 191, 191, 0.3);
+        }
+
+        .viewer-btn.active {
+            background-color: #009999;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .feature-box {
+            text-align: center;
+            padding: 30px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .feature-box svg {
+            width: 50px;
+            height: 50px;
+            color: #00BFBF;
+            margin: 0 auto 15px;
+        }
+
+        .feature-box h4 {
+            font-size: 14pt;
+            color: #36474F;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .viewer-3d-wrapper {
+                min-height: 500px;
+            }
+
+            #viewer-3d-canvas {
+                height: 400px;
+            }
+
+            .viewer-3d-controls {
+                flex-direction: column;
+            }
+
+            .viewer-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <!-- Header -->
+        <header>
+            <div class="header-container">
+                <a href="index.html">
+                    <img src="images/ChatGPT-Image-15.-Dez.-2025,-14_53_41.png" alt="STOFFGARAGE Logo" class="logo">
+                </a>
+
+                <nav>
+                    <button class="menu-toggle" aria-label="Menü öffnen" aria-expanded="false">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+
+                    <ul class="nav-menu">
+                        <li><a href="index.html">Homepage</a></li>
+                        <li class="dropdown">
+                            <span class="dropdown-toggle">
+                                Abdeckung PKW
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                                </svg>
+                            </span>
+                            <ul class="dropdown-menu">
+                                <li><a href="klassisch.html">Klassisch</a></li>
+                                <li><a href="praktisch.html">Praktisch</a></li>
+                                <li><a href="premium.html">Premium</a></li>
+                                <li><a href="exclusiv.html">Exclusiv</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="camper.html">Camper/Wohnmobil</a></li>
+                        <li><a href="hagelschutz.html">Hagelschutz PKW</a></li>
+                        <li><a href="3d-viewer.html" class="active">3D Viewer</a></li>
+                        <li><a href="kontakt.html">Kontakt</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="content-wrapper">
+            <!-- Hero -->
+            <section class="hero">
+                <div class="container">
+                    <h1>Interaktiver 3D Viewer</h1>
+                    <p>
+                        Erleben Sie unsere Fahrzeugabdeckungen in 3D. Wählen Sie Ihr Fahrzeugmodell aus
+                        und sehen Sie, wie die Abdeckung auf Ihrem Auto aussieht.
+                    </p>
+                </div>
+            </section>
+
+            <!-- 3D Viewer -->
+            <section class="section">
+                <div class="container">
+                    <div class="viewer-container">
+                        <div id="viewer-3d-container"></div>
+                    </div>
+
+                    <!-- Features -->
+                    <div class="features-grid">
+                        <div class="feature-box">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                            </svg>
+                            <h4>360° Ansicht</h4>
+                            <p>Betrachten Sie das Fahrzeug von allen Seiten</p>
+                        </div>
+
+                        <div class="feature-box">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/>
+                            </svg>
+                            <h4>Zoom-Funktion</h4>
+                            <p>Zoomen Sie auf Details</p>
+                        </div>
+
+                        <div class="feature-box">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/>
+                            </svg>
+                            <h4>Realistische Darstellung</h4>
+                            <p>Hochwertige 3D-Modelle</p>
+                        </div>
+
+                        <div class="feature-box">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                            </svg>
+                            <h4>Interaktive Steuerung</h4>
+                            <p>Einfache Bedienung per Maus oder Touch</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Info Section -->
+            <section class="section" style="background-color: #f8f9fa;">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>So funktioniert's</h2>
+                    </div>
+                    <div class="grid grid-3">
+                        <div style="text-align: center; padding: 20px;">
+                            <div style="width: 60px; height: 60px; background-color: #00BFBF; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24pt; font-weight: bold; margin: 0 auto 20px;">1</div>
+                            <h3 style="font-size: 16pt; color: #36474F; margin-bottom: 10px;">Fahrzeug wählen</h3>
+                            <p>Suchen Sie Ihr Fahrzeugmodell in der Suchleiste</p>
+                        </div>
+                        <div style="text-align: center; padding: 20px;">
+                            <div style="width: 60px; height: 60px; background-color: #00BFBF; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24pt; font-weight: bold; margin: 0 auto 20px;">2</div>
+                            <h3 style="font-size: 16pt; color: #36474F; margin-bottom: 10px;">3D-Modell betrachten</h3>
+                            <p>Drehen und zoomen Sie das Modell nach Belieben</p>
+                        </div>
+                        <div style="text-align: center; padding: 20px;">
+                            <div style="width: 60px; height: 60px; background-color: #00BFBF; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24pt; font-weight: bold; margin: 0 auto 20px;">3</div>
+                            <h3 style="font-size: 16pt; color: #36474F; margin-bottom: 10px;">Abdeckung testen</h3>
+                            <p>Schalten Sie die Abdeckung ein und aus</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CTA -->
+            <section class="section">
+                <div class="container text-center">
+                    <h2 style="font-size: 32pt; color: #36474F; margin-bottom: 20px;">Überzeugt?</h2>
+                    <p style="font-size: 14pt; margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto;">
+                        Finden Sie die perfekte Abdeckung für Ihr Fahrzeug oder kontaktieren Sie uns für eine persönliche Beratung.
+                    </p>
+                    <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                        <a href="klassisch.html" class="btn btn-primary">Zu den Produkten</a>
+                        <a href="kontakt.html" class="btn btn-secondary">Jetzt anfragen</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-container">
+                <div class="footer-section">
+                    <h3>STOFFGARAGE</h3>
+                    <p>Premium Fahrzeugabdeckungen für höchste Ansprüche.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Produkte</h3>
+                    <ul>
+                        <li><a href="klassisch.html">Klassisch</a></li>
+                        <li><a href="praktisch.html">Praktisch</a></li>
+                        <li><a href="premium.html">Premium</a></li>
+                        <li><a href="exclusiv.html">Exclusiv</a></li>
+                        <li><a href="hagelschutz.html">Hagelschutz</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Service</h3>
+                    <ul>
+                        <li><a href="kontakt.html">Kontakt</a></li>
+                        <li><a href="3d-viewer.html">3D Viewer</a></li>
+                        <li><a href="impressum.html">Impressum</a></li>
+                        <li><a href="datenschutz.html">Datenschutz</a></li>
+                        <li><a href="agb.html">AGB</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Kontakt</h3>
+                    <ul>
+                        <li>Email: info@stoffgarage.de</li>
+                        <li>Tel: +49 (0) XXX XXXXXXX</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 STOFFGARAGE. Alle Rechte vorbehalten.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/main.js"></script>
+    <!-- Three.js for 3D rendering -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="assets/js/viewer-360-3d.js"></script>
+    <script>
+        // Initialize 3D Viewer when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof Viewer3D !== 'undefined') {
+                const viewer = new Viewer3D('viewer-3d-container', {
+                    autoRotate: true,
+                    autoRotateSpeed: 0.5,
+                    enableZoom: true
+                });
+            }
+        });
+    </script>
+</body>
+</html>
