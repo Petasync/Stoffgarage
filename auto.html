@@ -76,14 +76,14 @@
     </div>
   </section>
 
-  <!-- 360 Degree Product Viewer -->
+  <!-- 3D Interactive Car Viewer -->
   <section class="section" style="padding: 3rem 0;">
     <div class="container">
       <div class="section-title">
-        <h2>360° PRODUKTANSICHT</h2>
-        <p>Interaktive 360-Grad-Ansicht - Ziehen Sie zum Drehen</p>
+        <h2>3D FAHRZEUG-ANSICHT</h2>
+        <p>Wählen Sie Ihr Fahrzeug und sehen Sie die Abdeckung in 3D</p>
       </div>
-      <div id="product-viewer-360" style="max-width: 800px; margin: 0 auto;"></div>
+      <div id="product-viewer-3d"></div>
     </div>
   </section>
 
@@ -361,7 +361,7 @@
   <!-- Scripts -->
   <script src="assets/js/products.js?v=2.0"></script>
   <script src="assets/js/car-models.js?v=2.0"></script>
-  <script src="assets/js/viewer-360.js?v=2.0"></script>
+  <script src="assets/js/viewer-360-3d.js?v=2.0"></script>
   <script src="assets/js/main.js?v=2.0"></script>
   <script src="assets/js/configurator.js?v=2.0"></script>
   <script>
@@ -369,11 +369,13 @@
     window.addEventListener('DOMContentLoaded', function() {
       window.configurator = new ProductConfigurator('auto');
 
-      // Initialize 360-degree viewer
-      new Viewer360('product-viewer-360', {
-        frameCount: 36,
+      // Initialize 3D viewer
+      window.viewer3D = new Viewer3D('product-viewer-3d', {
+        modelPath: 'assets/models/cars/',
+        coverPath: 'assets/models/covers/',
         autoRotate: true,
-        autoRotateSpeed: 50
+        autoRotateSpeed: 0.5,
+        enableZoom: true
       });
     });
   </script>

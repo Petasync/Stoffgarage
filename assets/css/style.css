@@ -1425,3 +1425,141 @@ footer {
     height: 280px;
   }
 }
+
+/* ===================================
+   3D Viewer Styles (Three.js)
+   =================================== */
+
+.viewer-3d-wrapper {
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  gap: 2rem;
+  background-color: var(--bg-secondary);
+  border: 2px solid var(--border-color);
+}
+
+.viewer-3d-selector {
+  background-color: var(--bg-primary);
+  padding: 1.5rem;
+  border-right: 2px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.selector-header h3 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.selector-search {
+  position: relative;
+}
+
+.selected-car-info {
+  margin-top: auto;
+}
+
+.viewer-3d-canvas-container {
+  position: relative;
+  min-height: 500px;
+  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-tertiary) 100%);
+  display: flex;
+  flex-direction: column;
+}
+
+#viewer-3d-canvas {
+  width: 100%;
+  height: 100%;
+  min-height: 500px;
+  display: block;
+}
+
+.viewer-3d-loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 10;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.viewer-3d-hint {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(26, 26, 26, 0.8);
+  padding: 0.75rem 1.5rem;
+  border: 1px solid var(--border-color);
+  backdrop-filter: blur(4px);
+}
+
+.viewer-3d-controls {
+  display: flex;
+  gap: 0;
+  background-color: var(--bg-secondary);
+  border-top: 2px solid var(--border-color);
+  grid-column: 1 / -1;
+}
+
+/* Responsive 3D Viewer */
+@media (max-width: 1024px) {
+  .viewer-3d-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .viewer-3d-selector {
+    border-right: none;
+    border-bottom: 2px solid var(--border-color);
+  }
+
+  .viewer-3d-canvas-container {
+    min-height: 400px;
+  }
+
+  #viewer-3d-canvas {
+    min-height: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .viewer-3d-canvas-container {
+    min-height: 350px;
+  }
+
+  #viewer-3d-canvas {
+    min-height: 350px;
+  }
+
+  .viewer-btn span {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .viewer-3d-canvas-container {
+    min-height: 300px;
+  }
+
+  #viewer-3d-canvas {
+    min-height: 300px;
+  }
+
+  .viewer-3d-controls {
+    flex-wrap: wrap;
+  }
+
+  .viewer-btn {
+    flex: 1 1 auto;
+    min-width: 80px;
+  }
+}
