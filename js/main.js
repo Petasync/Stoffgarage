@@ -152,7 +152,7 @@ function initScrollAnimations() {
     });
 }
 
-/* === PARALLAX EFFECT === */
+/* === SCROLL EFFECTS === */
 function initParallax() {
     let ticking = false;
 
@@ -160,12 +160,6 @@ function initParallax() {
         if (!ticking) {
             window.requestAnimationFrame(function() {
                 const scrolled = window.pageYOffset;
-
-                // Parallax on hero section
-                const hero = document.querySelector('.hero');
-                if (hero && scrolled < window.innerHeight) {
-                    hero.style.transform = `translateY(${scrolled * 0.5}px)`;
-                }
 
                 // Add shadow to header on scroll
                 const header = document.querySelector('header');
@@ -183,36 +177,6 @@ function initParallax() {
             ticking = true;
         }
     });
-}
-
-/* === 3D CARD TILT EFFECT === */
-function init3DCardEffect() {
-    const cards = document.querySelectorAll('.card');
-
-    cards.forEach(card => {
-        card.addEventListener('mousemove', function(e) {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-
-            const rotateX = (y - centerY) / 20;
-            const rotateY = (centerX - x) / 20;
-
-            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px) scale(1.02)`;
-        });
-
-        card.addEventListener('mouseleave', function() {
-            card.style.transform = '';
-        });
-    });
-}
-
-// Initialize 3D effect after DOM loads
-if (window.matchMedia('(min-width: 1024px)').matches) {
-    document.addEventListener('DOMContentLoaded', init3DCardEffect);
 }
 
 /* === SCROLL TO TOP === */
