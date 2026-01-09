@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="STOFFGARAGE - Premium Fahrzeugabdeckungen für PKW, Van, Pickup, Wohnmobil und Hagelschutz. Hochwertige Materialien, wasserdicht, UV-beständig und atmungsaktiv.">
+  <meta name="keywords" content="Autoabdeckung, Fahrzeugabdeckung, Hagelschutz, Wohnmobil Abdeckung, Premium Autoabdeckung">
+  <meta name="author" content="STOFFGARAGE">
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="STOFFGARAGE - Premium Fahrzeugabdeckungen">
+  <meta property="og:description" content="Hochwertige Fahrzeugabdeckungen für jeden Bedarf. Wasserdicht, UV-beständig und langlebig.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://stoffgarage.de">
+  <meta property="og:site_name" content="STOFFGARAGE">
+
+  <title>STOFFGARAGE - Premium Fahrzeugabdeckungen | PKW, Van, Pickup, Wohnmobil & Hagelschutz</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts - Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/style.css?v=2.0">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg">
+</head>
+<body>
+
+  <!-- Header / Navigation -->
+  <header>
+    <div class="header-container">
+      <a href="index.html" class="logo-link">
+        <img src="assets/images/logo.svg" alt="STOFFGARAGE Logo" class="logo">
+      </a>
+
+      <nav>
+        <button class="menu-toggle" aria-label="Menu öffnen" aria-expanded="false">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+
+        <ul class="nav-menu">
+          <li><a href="index.html">Home</a></li>
+          <li class="dropdown">
+            <span class="dropdown-toggle">
+              Produkte
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </span>
+            <ul class="dropdown-menu">
+              <li><a href="auto.html">Auto-Abdeckungen</a></li>
+              <li><a href="van.html">Van-Abdeckungen</a></li>
+              <li><a href="pickup.html">Pickup-Abdeckungen</a></li>
+              <li><a href="wohnmobil.html">Wohnmobil-Abdeckungen</a></li>
+              <li><a href="hagelschutz.html">Hagelschutz</a></li>
+            </ul>
+          </li>
+          <li><a href="ueber-uns.html">Über uns</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content container">
+      <h1>Premium Fahrzeugabdeckungen für jedes Wetter</h1>
+      <p>
+        Schützen Sie Ihr Fahrzeug vor Witterungseinflüssen, UV-Strahlung und Hagelschlag mit unseren
+        hochwertigen Abdeckungen. Made in Europe, entwickelt für maximalen Schutz und Langlebigkeit.
+      </p>
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem;">
+        <a href="auto.html" class="btn btn-primary">Jetzt Abdeckung finden</a>
+        <a href="ueber-uns.html" class="btn btn-outline">Mehr erfahren</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Categories -->
+  <section class="section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Unsere Produktkategorien</h2>
+        <p>Finden Sie die perfekte Abdeckung für Ihr Fahrzeug</p>
+      </div>
+
+      <div class="grid grid-3">
+        <!-- Auto -->
+        <a href="auto.html" class="card">
+          <div class="card-image">
+            <svg class="w-20 h-20" style="color: var(--accent-primary);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/>
+            </svg>
+          </div>
+          <h3 class="card-title">Auto-Abdeckungen</h3>
+          <p class="card-text">
+            Premium Abdeckungen für PKW in vier Qualitätsstufen: Klassisch, Praktisch, Premium und Exklusiv.
+            Perfekt für Indoor und Outdoor.
+          </p>
+          <button class="btn btn-primary">Mehr erfahren</button>
+        </a>
+
+        <!-- Van -->
+        <a href="van.html" class="card">
+          <div class="card-image">
+            <svg class="w-20 h-20" style="color: var(--accent-primary);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+            </svg>
+          </div>
+          <h3 class="card-title">Van-Abdeckungen</h3>
+          <p class="card-text">
+            Robuste Abdeckungen für Vans und Kleinbusse. Optional mit seitlicher Öffnung für einfachen Zugang.
+          </p>
+          <button class="btn btn-primary">Mehr erfahren</button>
+        </a>
+
+        <!-- Pickup -->
+        <a href="pickup.html" class="card">
+          <div class="card-image">
+            <svg class="w-20 h-20" style="color: var(--accent-primary);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"/>
+            </svg>
+          </div>
+          <h3 class="card-title">Pickup-Abdeckungen</h3>
+          <p class="card-text">
+            Speziell entwickelt für Pickup-Trucks. Strapazierfähig und wetterbeständig für den harten Einsatz.
+          </p>
+          <button class="btn btn-primary">Mehr erfahren</button>
+        </a>
+
+        <!-- Wohnmobil -->
+        <a href="wohnmobil.html" class="card">
+          <div class="card-image">
+            <svg class="w-20 h-20" style="color: var(--accent-primary);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+            </svg>
+          </div>
+          <h3 class="card-title">Wohnmobil-Abdeckungen</h3>
+          <p class="card-text">
+            Perfekter Schutz für Ihr Wohnmobil in der Standzeit. UV-beständig und atmungsaktiv.
+          </p>
+          <button class="btn btn-primary">Mehr erfahren</button>
+        </a>
+
+        <!-- Hagelschutz -->
+        <a href="hagelschutz.html" class="card">
+          <div class="card-image">
+            <svg class="w-20 h-20" style="color: var(--accent-primary);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+            </svg>
+          </div>
+          <h3 class="card-title">Hagelschutz</h3>
+          <p class="card-text">
+            Professioneller Hagelschutz Klasse 3. Schützt Ihr Fahrzeug zuverlässig vor Hagelschäden bis 4cm Durchmesser.
+          </p>
+          <button class="btn btn-primary">Mehr erfahren</button>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- USP Section -->
+  <section class="section" style="background-color: var(--bg-secondary);">
+    <div class="container">
+      <div class="section-title">
+        <h2>Warum STOFFGARAGE?</h2>
+        <p>Ihre Vorteile auf einen Blick</p>
+      </div>
+
+      <div class="usp-grid">
+        <div class="usp-item">
+          <div class="usp-icon">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+            </svg>
+          </div>
+          <h3>Premium Qualität</h3>
+          <p>
+            Hochwertige Materialien von europäischen Premium-Herstellern. Jede Abdeckung wird sorgfältig geprüft.
+          </p>
+        </div>
+
+        <div class="usp-item">
+          <div class="usp-icon">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/>
+            </svg>
+          </div>
+          <h3>100% Wasserdicht</h3>
+          <p>
+            Alle Abdeckungen sind vollständig wasserdicht und schützen Ihr Fahrzeug zuverlässig vor Regen und Feuchtigkeit.
+          </p>
+        </div>
+
+        <div class="usp-item">
+          <div class="usp-icon">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+            </svg>
+          </div>
+          <h3>UV-Schutz</h3>
+          <p>
+            Schützt den Lack vor schädlicher UV-Strahlung und verhindert Verblassen und Materialermüdung.
+          </p>
+        </div>
+
+        <div class="usp-item">
+          <div class="usp-icon">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+            </svg>
+          </div>
+          <h3>Schnelle Lieferung</h3>
+          <p>
+            Lieferzeit 2-3 Wochen. Jede Abdeckung wird speziell für Sie gefertigt und direkt an Ihre Haustür geliefert.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section">
+    <div class="container" style="text-align: center;">
+      <h2 style="margin-bottom: 1rem;">Finden Sie jetzt die perfekte Abdeckung</h2>
+      <p style="font-size: 1.125rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto 2rem;">
+        Unsere Experten beraten Sie gerne und helfen Ihnen bei der Auswahl der richtigen Abdeckung für Ihr Fahrzeug.
+      </p>
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <a href="kontakt.html" class="btn btn-primary">Jetzt Kontakt aufnehmen</a>
+        <a href="faq.html" class="btn btn-secondary">Häufige Fragen</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-section">
+          <h4>STOFFGARAGE</h4>
+          <p style="color: var(--text-secondary); font-size: 0.9375rem;">
+            Ihr Experte für Premium Fahrzeugabdeckungen. Qualität aus Europa.
+          </p>
+        </div>
+
+        <div class="footer-section">
+          <h4>Produkte</h4>
+          <ul>
+            <li><a href="auto.html">Auto-Abdeckungen</a></li>
+            <li><a href="van.html">Van-Abdeckungen</a></li>
+            <li><a href="pickup.html">Pickup-Abdeckungen</a></li>
+            <li><a href="wohnmobil.html">Wohnmobil-Abdeckungen</a></li>
+            <li><a href="hagelschutz.html">Hagelschutz</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>Unternehmen</h4>
+          <ul>
+            <li><a href="ueber-uns.html">Über uns</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>Rechtliches</h4>
+          <ul>
+            <li><a href="impressum.html">Impressum</a></li>
+            <li><a href="datenschutz.html">Datenschutz</a></li>
+            <li><a href="agb.html">AGB</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; <span class="current-year">2026</span> STOFFGARAGE. Alle Rechte vorbehalten.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button id="backToTop" aria-label="Nach oben scrollen">
+    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+    </svg>
+  </button>
+
+  <!-- Cookie Banner -->
+  <div class="cookie-banner">
+    <div class="cookie-content">
+      <p class="cookie-text">
+        Wir verwenden Cookies, um Ihnen die beste Erfahrung auf unserer Website zu bieten.
+        Durch die Nutzung unserer Website stimmen Sie der Verwendung von Cookies zu.
+        <a href="datenschutz.html" style="color: var(--accent-light);">Mehr erfahren</a>
+      </p>
+      <div class="cookie-buttons">
+        <button id="acceptCookies" class="btn btn-primary">Akzeptieren</button>
+        <button id="declineCookies" class="btn btn-secondary">Ablehnen</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="assets/js/products.js?v=2.0"></script>
+  <script src="assets/js/main.js?v=2.0"></script>
+</body>
+</html>
