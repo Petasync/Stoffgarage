@@ -1,7 +1,7 @@
 /* =================================================
    STOFFGARAGE - Main Stylesheet
-   Original Design mit modernem Code
-   Farben: Schwarz (#000), Grau (#D3DADC), Türkis (#00BFBF)
+   Original Design with Modern Code
+   Colors: Black (#000), Gray (#D3DADC), Cyan (#00BFBF)
    Font: Tahoma
    ================================================= */
 
@@ -18,12 +18,14 @@ html {
 }
 
 body {
-    font-family: 'Tahoma', Arial, sans-serif;
-    font-size: 12pt;
-    line-height: 1.6;
-    color: #000;
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 11pt;
+    line-height: 1.7;
+    color: #333;
     background-color: #000;
     min-height: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 img {
@@ -60,11 +62,12 @@ a {
 /* === HEADER === */
 header {
     background-color: #D3DADC;
-    padding: 20px 0;
+    padding: 18px 0;
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .header-container {
@@ -196,62 +199,69 @@ nav a.active {
 
 /* === HERO SECTION === */
 .hero {
-    background: linear-gradient(135deg, #36474F 0%, #000 100%);
+    background: linear-gradient(135deg, #36474F 0%, #1a2329 100%);
     color: #fff;
-    padding: 80px 20px;
+    padding: 100px 20px 80px;
     text-align: center;
 }
 
 .hero h1 {
-    font-size: 42pt;
+    font-size: 36pt;
     font-weight: bold;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     color: #fff;
+    letter-spacing: -0.5px;
 }
 
 .hero p {
-    font-size: 16pt;
-    max-width: 800px;
-    margin: 0 auto 30px;
+    font-size: 13pt;
+    max-width: 700px;
+    margin: 0 auto 35px;
     line-height: 1.8;
-    color: #D3DADC;
+    color: #E8EBED;
+    font-weight: 400;
 }
 
 /* === BUTTONS === */
 .btn {
     display: inline-block;
-    padding: 15px 30px;
-    border-radius: 5px;
+    padding: 14px 32px;
+    border-radius: 4px;
     font-weight: 600;
-    font-size: 14pt;
+    font-size: 12pt;
     cursor: pointer;
     border: 2px solid transparent;
-    transition: all 0.3s ease;
+    transition: all 0.25s ease;
     text-align: center;
+    letter-spacing: 0.3px;
 }
 
 .btn-primary {
     background-color: #00BFBF;
     color: #fff;
     border-color: #00BFBF;
+    box-shadow: 0 2px 8px rgba(0, 191, 191, 0.2);
 }
 
 .btn-primary:hover {
     background-color: #009999;
     border-color: #009999;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 191, 191, 0.3);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 191, 191, 0.3);
 }
 
 .btn-secondary {
     background-color: #36474F;
     color: #fff;
     border-color: #36474F;
+    box-shadow: 0 2px 8px rgba(54, 71, 79, 0.2);
 }
 
 .btn-secondary:hover {
     background-color: #2a3840;
     border-color: #2a3840;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(54, 71, 79, 0.3);
 }
 
 .btn-outline {
@@ -272,19 +282,21 @@ nav a.active {
 
 .section-title {
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 55px;
 }
 
 .section-title h2 {
-    font-size: 32pt;
+    font-size: 28pt;
     font-weight: bold;
     color: #36474F;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
+    letter-spacing: -0.3px;
 }
 
 .section-title p {
-    font-size: 14pt;
+    font-size: 12pt;
     color: #666;
+    font-weight: 400;
 }
 
 /* === GRID === */
@@ -308,40 +320,43 @@ nav a.active {
 /* === CARDS === */
 .card {
     background-color: #fff;
-    border: 1px solid #D3DADC;
-    border-radius: 10px;
-    padding: 30px;
-    transition: all 0.3s ease;
+    border: 1px solid #E5E8EA;
+    border-radius: 8px;
+    padding: 35px 28px;
+    transition: all 0.25s ease;
     display: flex;
     flex-direction: column;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
 .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
     border-color: #00BFBF;
 }
 
 .card-icon {
-    width: 80px;
-    height: 80px;
-    margin: 0 auto 20px;
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 22px;
     color: #00BFBF;
 }
 
 .card h3 {
-    font-size: 20pt;
+    font-size: 18pt;
     font-weight: bold;
     color: #36474F;
-    margin-bottom: 15px;
+    margin-bottom: 16px;
     text-align: center;
+    letter-spacing: -0.2px;
 }
 
 .card p {
     color: #666;
-    line-height: 1.8;
+    line-height: 1.7;
     flex: 1;
     margin-bottom: 20px;
+    font-size: 11pt;
 }
 
 .card ul {
@@ -357,19 +372,42 @@ nav a.active {
 }
 
 .card ul li:before {
-    content: "✓";
+    content: "\2713";
     position: absolute;
     left: 0;
     color: #00BFBF;
     font-weight: bold;
 }
 
+/* Feature list with checkmarks */
+.feature-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.feature-list li {
+    padding: 10px 0 10px 30px;
+    position: relative;
+    font-size: 13pt;
+}
+
+.feature-list li::before {
+    content: "\2713";
+    position: absolute;
+    left: 0;
+    color: #00BFBF;
+    font-weight: bold;
+    font-size: 16pt;
+}
+
 .price {
-    font-size: 28pt;
+    font-size: 26pt;
     font-weight: bold;
     color: #00BFBF;
     text-align: center;
-    margin: 20px 0;
+    margin: 24px 0;
+    letter-spacing: -0.5px;
 }
 
 /* === PRODUCT FEATURES === */
@@ -383,10 +421,18 @@ nav a.active {
 .feature-item {
     display: flex;
     align-items: flex-start;
-    gap: 15px;
-    padding: 20px;
-    background-color: #f8f9fa;
-    border-radius: 8px;
+    gap: 16px;
+    padding: 24px 20px;
+    background-color: #FAFBFC;
+    border-radius: 6px;
+    border: 1px solid #F0F2F4;
+    transition: all 0.25s ease;
+}
+
+.feature-item:hover {
+    background-color: #fff;
+    border-color: #E5E8EA;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
 .feature-icon {
@@ -397,14 +443,16 @@ nav a.active {
 }
 
 .feature-item h4 {
-    font-size: 14pt;
+    font-size: 13pt;
     color: #36474F;
-    margin-bottom: 5px;
+    margin-bottom: 6px;
+    font-weight: 600;
 }
 
 .feature-item p {
-    font-size: 11pt;
+    font-size: 10pt;
     color: #666;
+    line-height: 1.6;
 }
 
 /* === FOOTER === */
@@ -502,16 +550,24 @@ footer {
         display: flex;
     }
 
+    .hero {
+        padding: 60px 20px 50px;
+    }
+
     .hero h1 {
-        font-size: 28pt;
+        font-size: 24pt;
     }
 
     .hero p {
-        font-size: 13pt;
+        font-size: 11pt;
     }
 
     .section-title h2 {
-        font-size: 24pt;
+        font-size: 22pt;
+    }
+
+    .section {
+        padding: 40px 15px;
     }
 
     .grid-2,
