@@ -1,8 +1,6 @@
 /* =================================================
    STOFFGARAGE - Main Stylesheet
-   Original Design with Modern Code
-   Colors: Black (#000), Gray (#D3DADC), Cyan (#00BFBF)
-   Font: Tahoma
+   Original WebSite X5 Design - Exact Colors
    ================================================= */
 
 /* === RESET & BASE === */
@@ -19,10 +17,10 @@ html {
 
 body {
     font-family: Tahoma, Arial, sans-serif;
-    font-size: 11pt;
-    line-height: 1.7;
-    color: #333;
-    background-color: #000;
+    font-size: 12pt;
+    line-height: 1.5;
+    color: #000000;
+    background-color: #000000;
     min-height: 100%;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -37,7 +35,7 @@ img {
 a {
     text-decoration: none;
     color: inherit;
-    transition: color 0.2s ease;
+    transition: color 0.2s linear;
 }
 
 /* === LAYOUT === */
@@ -49,7 +47,7 @@ a {
 
 .content-wrapper {
     flex: 1;
-    background-color: #fff;
+    background-color: #FFFFFF;
     max-width: 1150px;
     margin: 0 auto;
     width: 100%;
@@ -62,12 +60,10 @@ a {
 /* === HEADER === */
 header {
     background-color: #D3DADC;
-    padding: 18px 0;
+    padding: 15px 0;
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .header-container {
@@ -88,22 +84,22 @@ header {
 nav ul {
     list-style: none;
     display: flex;
-    gap: 30px;
+    gap: 25px;
     align-items: center;
 }
 
 nav a {
     color: #36474F;
-    font-weight: 500;
-    padding: 10px 15px;
+    font-weight: normal;
+    padding: 8px 12px;
     border-radius: 3px;
-    transition: all 0.3s ease;
+    transition: all 0.2s linear;
 }
 
 nav a:hover,
 nav a.active {
     color: #00BFBF;
-    background-color: rgba(0, 191, 191, 0.1);
+    background-color: rgba(0, 191, 191, 0.08);
 }
 
 /* Dropdown Menu */
@@ -117,21 +113,21 @@ nav a.active {
     align-items: center;
     gap: 5px;
     color: #36474F;
-    font-weight: 500;
-    padding: 10px 15px;
+    font-weight: normal;
+    padding: 8px 12px;
     border-radius: 3px;
-    transition: all 0.3s ease;
+    transition: all 0.2s linear;
 }
 
 .dropdown-toggle:hover {
     color: #00BFBF;
-    background-color: rgba(0, 191, 191, 0.1);
+    background-color: rgba(0, 191, 191, 0.08);
 }
 
 .dropdown-toggle svg {
-    width: 16px;
-    height: 16px;
-    transition: transform 0.3s ease;
+    width: 14px;
+    height: 14px;
+    transition: transform 0.2s linear;
 }
 
 .dropdown.active .dropdown-toggle svg {
@@ -142,15 +138,14 @@ nav a.active {
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: #fff;
-    border: 1px solid #D3DADC;
-    border-radius: 5px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    min-width: 200px;
+    background-color: #FFFFFF;
+    border: 1px solid #9FABB0;
+    border-radius: 3px;
+    min-width: 180px;
     opacity: 0;
     visibility: hidden;
     transform: translateY(-10px);
-    transition: all 0.3s ease;
+    transition: all 0.2s linear;
     z-index: 100;
 }
 
@@ -163,7 +158,7 @@ nav a.active {
 .dropdown-menu {
     flex-direction: column;
     gap: 0;
-    padding: 10px 0;
+    padding: 8px 0;
 }
 
 .dropdown-menu li {
@@ -172,13 +167,13 @@ nav a.active {
 
 .dropdown-menu a {
     display: block;
-    padding: 12px 20px;
+    padding: 10px 16px;
     color: #36474F;
     border-radius: 0;
 }
 
 .dropdown-menu a:hover {
-    background-color: rgba(0, 191, 191, 0.1);
+    background-color: rgba(0, 191, 191, 0.08);
     color: #00BFBF;
 }
 
@@ -188,90 +183,82 @@ nav a.active {
     background: none;
     border: none;
     cursor: pointer;
-    padding: 10px;
+    padding: 8px;
     color: #36474F;
 }
 
 .menu-toggle svg {
-    width: 28px;
-    height: 28px;
+    width: 26px;
+    height: 26px;
 }
 
 /* === HERO SECTION === */
 .hero {
-    background: linear-gradient(135deg, #36474F 0%, #1a2329 100%);
-    color: #fff;
-    padding: 100px 20px 80px;
+    background-color: #36474F;
+    color: #FFFFFF;
+    padding: 80px 20px 60px;
     text-align: center;
 }
 
 .hero h1 {
     font-size: 36pt;
     font-weight: bold;
-    margin-bottom: 25px;
-    color: #fff;
-    letter-spacing: -0.5px;
+    margin-bottom: 20px;
+    color: #FFFFFF;
 }
 
 .hero p {
-    font-size: 13pt;
+    font-size: 14pt;
     max-width: 700px;
-    margin: 0 auto 35px;
-    line-height: 1.8;
-    color: #E8EBED;
-    font-weight: 400;
+    margin: 0 auto 30px;
+    line-height: 1.5;
+    color: #FFFFFF;
+    font-weight: normal;
 }
 
 /* === BUTTONS === */
 .btn {
     display: inline-block;
-    padding: 14px 32px;
-    border-radius: 4px;
-    font-weight: 600;
+    padding: 12px 28px;
+    border-radius: 3px;
+    font-weight: normal;
     font-size: 12pt;
     cursor: pointer;
     border: 2px solid transparent;
-    transition: all 0.25s ease;
+    transition: all 0.2s linear;
     text-align: center;
-    letter-spacing: 0.3px;
 }
 
 .btn-primary {
     background-color: #00BFBF;
-    color: #fff;
+    color: #FFFFFF;
     border-color: #00BFBF;
-    box-shadow: 0 2px 8px rgba(0, 191, 191, 0.2);
 }
 
 .btn-primary:hover {
-    background-color: #009999;
-    border-color: #009999;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(0, 191, 191, 0.3);
+    background-color: #008080;
+    border-color: #008080;
 }
 
 .btn-secondary {
     background-color: #36474F;
-    color: #fff;
+    color: #FFFFFF;
     border-color: #36474F;
-    box-shadow: 0 2px 8px rgba(54, 71, 79, 0.2);
 }
 
 .btn-secondary:hover {
-    background-color: #2a3840;
-    border-color: #2a3840;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(54, 71, 79, 0.3);
+    background-color: #37474F;
+    border-color: #37474F;
 }
 
 .btn-outline {
     background-color: transparent;
-    color: #fff;
-    border-color: #fff;
+    color: #FFFFFF;
+    border-color: #FFFFFF;
 }
 
 .btn-outline:hover {
-    background-color: #fff;
+    background-color: #FFFFFF;
     color: #36474F;
 }
 
@@ -282,21 +269,20 @@ nav a.active {
 
 .section-title {
     text-align: center;
-    margin-bottom: 55px;
+    margin-bottom: 50px;
 }
 
 .section-title h2 {
     font-size: 28pt;
     font-weight: bold;
     color: #36474F;
-    margin-bottom: 12px;
-    letter-spacing: -0.3px;
+    margin-bottom: 10px;
 }
 
 .section-title p {
     font-size: 12pt;
-    color: #666;
-    font-weight: 400;
+    color: #000000;
+    font-weight: normal;
 }
 
 /* === GRID === */
@@ -319,26 +305,23 @@ nav a.active {
 
 /* === CARDS === */
 .card {
-    background-color: #fff;
-    border: 1px solid #E5E8EA;
-    border-radius: 8px;
-    padding: 35px 28px;
-    transition: all 0.25s ease;
+    background-color: #FFFFFF;
+    border: 1px solid #9FABB0;
+    border-radius: 3px;
+    padding: 30px;
+    transition: all 0.2s linear;
     display: flex;
     flex-direction: column;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
 .card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
     border-color: #00BFBF;
 }
 
 .card-icon {
     width: 70px;
     height: 70px;
-    margin: 0 auto 22px;
+    margin: 0 auto 20px;
     color: #00BFBF;
 }
 
@@ -346,17 +329,16 @@ nav a.active {
     font-size: 18pt;
     font-weight: bold;
     color: #36474F;
-    margin-bottom: 16px;
+    margin-bottom: 15px;
     text-align: center;
-    letter-spacing: -0.2px;
 }
 
 .card p {
-    color: #666;
-    line-height: 1.7;
+    color: #000000;
+    line-height: 1.5;
     flex: 1;
     margin-bottom: 20px;
-    font-size: 11pt;
+    font-size: 12pt;
 }
 
 .card ul {
@@ -368,7 +350,7 @@ nav a.active {
     padding: 8px 0;
     padding-left: 25px;
     position: relative;
-    color: #666;
+    color: #000000;
 }
 
 .card ul li:before {
@@ -389,7 +371,7 @@ nav a.active {
 .feature-list li {
     padding: 10px 0 10px 30px;
     position: relative;
-    font-size: 13pt;
+    font-size: 12pt;
 }
 
 .feature-list li::before {
@@ -398,16 +380,15 @@ nav a.active {
     left: 0;
     color: #00BFBF;
     font-weight: bold;
-    font-size: 16pt;
+    font-size: 14pt;
 }
 
 .price {
-    font-size: 26pt;
+    font-size: 24pt;
     font-weight: bold;
     color: #00BFBF;
     text-align: center;
-    margin: 24px 0;
-    letter-spacing: -0.5px;
+    margin: 20px 0;
 }
 
 /* === PRODUCT FEATURES === */
@@ -421,18 +402,11 @@ nav a.active {
 .feature-item {
     display: flex;
     align-items: flex-start;
-    gap: 16px;
-    padding: 24px 20px;
-    background-color: #FAFBFC;
-    border-radius: 6px;
-    border: 1px solid #F0F2F4;
-    transition: all 0.25s ease;
-}
-
-.feature-item:hover {
-    background-color: #fff;
-    border-color: #E5E8EA;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    gap: 15px;
+    padding: 20px;
+    background-color: #F1F3F3;
+    border-radius: 3px;
+    border: 1px solid #D3DADC;
 }
 
 .feature-icon {
@@ -445,14 +419,14 @@ nav a.active {
 .feature-item h4 {
     font-size: 13pt;
     color: #36474F;
-    margin-bottom: 6px;
-    font-weight: 600;
+    margin-bottom: 5px;
+    font-weight: bold;
 }
 
 .feature-item p {
-    font-size: 10pt;
-    color: #666;
-    line-height: 1.6;
+    font-size: 11pt;
+    color: #000000;
+    line-height: 1.5;
 }
 
 /* === FOOTER === */
@@ -472,9 +446,9 @@ footer {
 }
 
 .footer-section h3 {
-    font-size: 16pt;
+    font-size: 14pt;
     font-weight: bold;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     color: #36474F;
 }
 
@@ -483,12 +457,12 @@ footer {
 }
 
 .footer-section ul li {
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 .footer-section a {
     color: #36474F;
-    transition: color 0.2s ease;
+    transition: color 0.2s linear;
 }
 
 .footer-section a:hover {
@@ -501,7 +475,7 @@ footer {
     padding-top: 20px;
     border-top: 1px solid #9FABB0;
     font-size: 10pt;
-    color: #666;
+    color: #36474F;
 }
 
 /* === RESPONSIVE === */
@@ -512,16 +486,16 @@ footer {
 
     nav ul {
         position: fixed;
-        top: 100px;
+        top: 90px;
         left: -100%;
         width: 100%;
-        height: calc(100vh - 100px);
+        height: calc(100vh - 90px);
         background-color: #D3DADC;
         flex-direction: column;
         align-items: flex-start;
-        padding: 30px;
+        padding: 20px;
         gap: 0;
-        transition: left 0.3s ease;
+        transition: left 0.2s linear;
         overflow-y: auto;
     }
 
@@ -532,7 +506,7 @@ footer {
     nav ul li {
         width: 100%;
         border-bottom: 1px solid #9FABB0;
-        padding: 15px 0;
+        padding: 12px 0;
     }
 
     .dropdown-menu {
@@ -551,7 +525,7 @@ footer {
     }
 
     .hero {
-        padding: 60px 20px 50px;
+        padding: 50px 20px 40px;
     }
 
     .hero h1 {
@@ -559,11 +533,11 @@ footer {
     }
 
     .hero p {
-        font-size: 11pt;
+        font-size: 12pt;
     }
 
     .section-title h2 {
-        font-size: 22pt;
+        font-size: 20pt;
     }
 
     .section {
@@ -579,20 +553,20 @@ footer {
 
 @media (max-width: 480px) {
     .hero {
-        padding: 50px 20px;
+        padding: 40px 15px 30px;
     }
 
     .hero h1 {
-        font-size: 22pt;
+        font-size: 20pt;
     }
 
     .section {
-        padding: 40px 15px;
+        padding: 30px 15px;
     }
 
     .btn {
-        padding: 12px 20px;
-        font-size: 12pt;
+        padding: 10px 20px;
+        font-size: 11pt;
     }
 }
 
