@@ -682,6 +682,18 @@ footer {
     margin: 40px 0;
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    -webkit-overflow-scrolling: touch;
+}
+
+.comparison-table-wrapper::after {
+    content: '← Scrollen Sie horizontal →';
+    display: none;
+    text-align: center;
+    padding: 10px;
+    font-size: 12px;
+    color: #999;
+    background-color: #f8f9fa;
+    border-top: 1px solid #e0e0e0;
 }
 
 .comparison-table {
@@ -926,6 +938,38 @@ footer {
     .btn {
         padding: 14px 28px;
         font-size: 15px;
+    }
+
+    .comparison-table th,
+    .comparison-table td {
+        padding: 15px 10px;
+        font-size: 14px;
+    }
+
+    .comparison-table td.feature-name {
+        padding-left: 15px;
+    }
+
+    .product-name {
+        font-size: 16px;
+    }
+
+    .product-price {
+        font-size: 12px;
+    }
+
+    .size-card {
+        padding: 25px 15px;
+    }
+
+    .size-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+    }
+
+    .comparison-table-wrapper::after {
+        display: block;
     }
 }
 
