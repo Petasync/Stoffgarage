@@ -94,7 +94,10 @@
                             </ul>
 
                             <div class="price" style="margin: 30px 0;">ab 129,90 €</div>
-                            <a href="kontakt.html" class="btn btn-primary">Jetzt anfragen</a>
+                            <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                                <a href="kontakt.html" class="btn btn-primary">Jetzt anfragen</a>
+                                <a href="#groessentabelle" class="btn btn-secondary">Passende Größe finden</a>
+                            </div>
                         </div>
 
                         <div>
@@ -122,6 +125,11 @@
                                     <li style="padding: 8px 0; font-size: 12pt;">• Groß (bis 4,80m)</li>
                                     <li style="padding: 8px 0; font-size: 12pt;">• Extra Groß (bis 5,30m)</li>
                                 </ul>
+                                <p style="line-height: 1.8; margin-bottom: 15px;">
+                                    Von 280 cm bis 530 cm Fahrzeuglänge verfügbar.<br>
+                                    Für Hatchback, SUV/MiniVan, Sedan und Coupé.
+                                </p>
+                                <a href="#groessentabelle" class="btn btn-secondary btn-small">Zur Größentabelle</a>
                             </div>
                         </div>
                     </div>
@@ -170,6 +178,210 @@
                                 <p>Premium-Features zum fairen Preis</p>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Größentabelle -->
+            <section class="section" id="groessentabelle">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>Größentabelle</h2>
+                        <p>Finden Sie die perfekte Größe für Ihr Fahrzeug</p>
+                    </div>
+
+                    <div class="size-tabs">
+                        <button class="size-tab active" data-tab="tab-hatchback">Hatchback</button>
+                        <button class="size-tab" data-tab="tab-suv">SUV / MiniVan</button>
+                        <button class="size-tab" data-tab="tab-sedan">Sedan</button>
+                        <button class="size-tab" data-tab="tab-coupe">Coupé</button>
+                    </div>
+
+                    <!-- Hatchback -->
+                    <div id="tab-hatchback" class="size-tab-content active">
+                        <table class="size-guide-table">
+                            <thead>
+                                <tr>
+                                    <th>Größe</th>
+                                    <th>Fahrzeuglänge</th>
+                                    <th>Abdeckung (L × B × H)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>S5</td>
+                                    <td>280 - 305 cm</td>
+                                    <td>305 × 140 × 135 cm</td>
+                                </tr>
+                                <tr>
+                                    <td>S3</td>
+                                    <td>330 - 355 cm</td>
+                                    <td>355 × 140 × 135 cm</td>
+                                </tr>
+                                <tr>
+                                    <td>S2</td>
+                                    <td>355 - 380 cm</td>
+                                    <td>380 × 140 × 135 cm</td>
+                                </tr>
+                                <tr>
+                                    <td>S1</td>
+                                    <td>380 - 405 cm</td>
+                                    <td>405 × 140 × 135 cm</td>
+                                </tr>
+                                <tr>
+                                    <td>M1</td>
+                                    <td>405 - 430 cm</td>
+                                    <td>430 × 155 × 135 cm</td>
+                                </tr>
+                                <tr>
+                                    <td>M2</td>
+                                    <td>430 - 455 cm</td>
+                                    <td>455 × 155 × 135 cm</td>
+                                </tr>
+                                <tr>
+                                    <td>L1</td>
+                                    <td>455 - 480 cm</td>
+                                    <td>480 × 155 × 135 cm</td>
+                                </tr>
+                                <tr>
+                                    <td>L2</td>
+                                    <td>480 - 505 cm</td>
+                                    <td>505 × 155 × 135 cm</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- SUV/MiniVan -->
+                    <div id="tab-suv" class="size-tab-content">
+                        <table class="size-guide-table">
+                            <thead>
+                                <tr>
+                                    <th>Größe</th>
+                                    <th>Fahrzeuglänge</th>
+                                    <th>Abdeckung (L × B × H)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>S2</td>
+                                    <td>355 - 380 cm</td>
+                                    <td>380 × 140 × 155 cm</td>
+                                </tr>
+                                <tr>
+                                    <td>S1</td>
+                                    <td>380 - 405 cm</td>
+                                    <td>405 × 140 × 155 cm</td>
+                                </tr>
+                                <tr>
+                                    <td>M1</td>
+                                    <td>405 - 430 cm</td>
+                                    <td>430 × 155 × 155 cm</td>
+                                </tr>
+                                <tr>
+                                    <td>M2</td>
+                                    <td>430 - 455 cm</td>
+                                    <td>455 × 155 × 155 cm</td>
+                                </tr>
+                                <tr>
+                                    <td>L1</td>
+                                    <td>455 - 480 cm</td>
+                                    <td>480 × 155 × 155 cm</td>
+                                </tr>
+                                <tr>
+                                    <td>L2</td>
+                                    <td>480 - 505 cm</td>
+                                    <td>505 × 155 × 155 cm</td>
+                                </tr>
+                                <tr>
+                                    <td>XL</td>
+                                    <td>505 - 530 cm</td>
+                                    <td>530 × 155 × 155 cm</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Sedan -->
+                    <div id="tab-sedan" class="size-tab-content">
+                        <table class="size-guide-table">
+                            <thead>
+                                <tr>
+                                    <th>Größe</th>
+                                    <th>Fahrzeuglänge</th>
+                                    <th>Abdeckung (L × B × H)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>M1</td>
+                                    <td>405 - 430 cm</td>
+                                    <td>430 × 155 × 135 cm</td>
+                                </tr>
+                                <tr>
+                                    <td>M2</td>
+                                    <td>430 - 455 cm</td>
+                                    <td>455 × 155 × 135 cm</td>
+                                </tr>
+                                <tr>
+                                    <td>L1</td>
+                                    <td>455 - 480 cm</td>
+                                    <td>480 × 155 × 135 cm</td>
+                                </tr>
+                                <tr>
+                                    <td>L2</td>
+                                    <td>480 - 505 cm</td>
+                                    <td>505 × 155 × 135 cm</td>
+                                </tr>
+                                <tr>
+                                    <td>XL</td>
+                                    <td>505 - 530 cm</td>
+                                    <td>530 × 155 × 135 cm</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Coupé -->
+                    <div id="tab-coupe" class="size-tab-content">
+                        <table class="size-guide-table">
+                            <thead>
+                                <tr>
+                                    <th>Größe</th>
+                                    <th>Fahrzeuglänge</th>
+                                    <th>Abdeckung (L × B × H)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>S1</td>
+                                    <td>380 - 405 cm</td>
+                                    <td>405 × 140 × 125 cm</td>
+                                </tr>
+                                <tr>
+                                    <td>M1</td>
+                                    <td>405 - 430 cm</td>
+                                    <td>430 × 155 × 125 cm</td>
+                                </tr>
+                                <tr>
+                                    <td>M2</td>
+                                    <td>430 - 455 cm</td>
+                                    <td>455 × 155 × 125 cm</td>
+                                </tr>
+                                <tr>
+                                    <td>L1</td>
+                                    <td>455 - 480 cm</td>
+                                    <td>480 × 155 × 125 cm</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div style="margin-top: 30px; padding: 20px; background-color: #f8f9fa; border-radius: 8px;">
+                        <p style="margin: 0; line-height: 1.8; color: #666;">
+                            <strong>Hinweis:</strong> Messen Sie Ihr Fahrzeug von vorne bis hinten, um die richtige Größe zu finden.
+                            Bei Unsicherheit empfehlen wir die nächstgrößere Größe. Für Spezialanfertigungen <a href="spezialanfertigungen.html" style="color: #36474F;">kontaktieren Sie uns</a>.
+                        </p>
                     </div>
                 </div>
             </section>
@@ -252,7 +464,10 @@
                         Kontaktieren Sie uns für ein individuelles Angebot oder weitere Informationen.
                     </p>
                     <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
-                        <a href="kontakt.html" class="btn btn-primary">Jetzt anfragen</a>
+                        <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                                <a href="kontakt.html" class="btn btn-primary">Jetzt anfragen</a>
+                                <a href="#groessentabelle" class="btn btn-secondary">Passende Größe finden</a>
+                            </div>
                         <a href="premium.html" class="btn btn-secondary">Zur Premium-Linie</a>
                     </div>
                 </div>

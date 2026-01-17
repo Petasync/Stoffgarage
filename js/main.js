@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initScrollAnimations();
     initParallax();
     initFAQ();
+    initSizeTabs();
 });
 
 /* === MOBILE MENU === */
@@ -273,5 +274,25 @@ function initFAQ() {
                 item.classList.toggle('active');
             });
         }
+    });
+}
+
+/* === SIZE GUIDE TABS === */
+function initSizeTabs() {
+    const tabs = document.querySelectorAll('.size-tab');
+    const contents = document.querySelectorAll('.size-tab-content');
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+            const targetId = this.getAttribute('data-tab');
+
+            // Remove active class from all tabs and contents
+            tabs.forEach(t => t.classList.remove('active'));
+            contents.forEach(c => c.classList.remove('active'));
+
+            // Add active class to clicked tab and corresponding content
+            this.classList.add('active');
+            document.getElementById(targetId).classList.add('active');
+        });
     });
 }
