@@ -653,14 +653,158 @@ footer {
 }
 
 .faq-answer {
-    padding: 0 30px 25px 30px;
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 30px;
     color: #4a4a4a;
     line-height: 1.8;
     font-size: 16px;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 1000px;
+    padding: 0 30px 25px 30px;
+}
+
+.faq-item.active .faq-question::after {
+    content: '−';
+    transform: translateY(-50%) rotate(180deg);
 }
 
 .faq-answer p {
     margin: 0;
+}
+
+/* === COMPARISON TABLE === */
+.comparison-table-wrapper {
+    overflow-x: auto;
+    margin: 40px 0;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    min-width: 800px;
+}
+
+.comparison-table thead {
+    background: linear-gradient(135deg, #36474F 0%, #4a5a62 100%);
+}
+
+.comparison-table th {
+    padding: 25px 15px;
+    text-align: center;
+    color: white;
+    font-weight: 600;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.comparison-table th:first-child {
+    text-align: left;
+    padding-left: 30px;
+}
+
+.table-product-header {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.product-name {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.product-price {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+.comparison-table tbody tr {
+    border-bottom: 1px solid #e0e0e0;
+    transition: background-color 0.2s ease;
+}
+
+.comparison-table tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+.comparison-table td {
+    padding: 20px 15px;
+    text-align: center;
+    color: #4a4a4a;
+    font-size: 15px;
+}
+
+.comparison-table td.feature-name {
+    text-align: left;
+    padding-left: 30px;
+    font-weight: 600;
+    color: #1a1a1a;
+}
+
+.comparison-table tbody tr.action-row {
+    background-color: #f8f9fa;
+}
+
+.comparison-table tbody tr.action-row:hover {
+    background-color: #f0f0f0;
+}
+
+.btn-small {
+    padding: 10px 20px;
+    font-size: 14px;
+}
+
+/* === SIZE CARDS === */
+.size-card {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f8f8 100%);
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 30px 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.size-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    border-color: #36474F;
+}
+
+.size-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #36474F 0%, #4a5a62 100%);
+    color: white;
+    font-size: 28px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+}
+
+.size-card h4 {
+    font-size: 20px;
+    color: #1a1a1a;
+    margin-bottom: 10px;
+}
+
+.size-card p {
+    color: #666;
+    margin: 5px 0;
+}
+
+.size-examples {
+    font-size: 13px;
+    color: #999;
+    font-style: italic;
 }
 
 /* === RESPONSIVE === */
