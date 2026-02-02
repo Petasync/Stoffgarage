@@ -137,144 +137,311 @@
                 </div>
             </section>
 
-            <!-- Vergleichstabelle -->
+            <!-- Vergleichstabelle und Groessen nebeneinander -->
             <section class="section">
                 <div class="container">
-                    <div class="section-title">
-                        <h2>Welche Abdeckung passt zu Ihnen?</h2>
-                        <p>Vergleichen Sie unsere 4 PKW-Abdeckungen im Detail</p>
-                    </div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start;">
+                        <!-- Vergleichstabelle -->
+                        <div>
+                            <div class="section-title" style="text-align: left;">
+                                <h2>Welche Abdeckung passt zu Ihnen?</h2>
+                                <p>Vergleichen Sie unsere 4 PKW-Abdeckungen</p>
+                            </div>
 
-                    <div class="comparison-table-wrapper">
-                        <table class="comparison-table">
-                            <thead>
-                                <tr>
-                                    <th>Eigenschaft</th>
-                                    <th>
-                                        <div class="table-product-header">
-                                            <span class="product-name">Klassisch</span>
-                                        </div>
-                                    </th>
-                                    <th>
-                                        <div class="table-product-header">
-                                            <span class="product-name">Praktisch</span>
-                                        </div>
-                                    </th>
-                                    <th>
-                                        <div class="table-product-header">
-                                            <span class="product-name">Premium</span>
-                                        </div>
-                                    </th>
-                                    <th>
-                                        <div class="table-product-header">
-                                            <span class="product-name">Exclusiv</span>
-                                        </div>
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="feature-name">Schichten</td>
-                                    <td>1-2</td>
-                                    <td>3</td>
-                                    <td><strong>4 Lagen</strong></td>
-                                    <td><strong>4 Lagen</strong></td>
-                                </tr>
-                                <tr>
-                                    <td class="feature-name">Wasserdicht</td>
-                                    <td>Wasserabweisend</td>
-                                    <td>100% (Oberseite)</td>
-                                    <td><strong>Komplett</strong></td>
-                                    <td><strong>Komplett</strong></td>
-                                </tr>
-                                <tr>
-                                    <td class="feature-name">Atmungsaktiv</td>
-                                    <td>Ja</td>
-                                    <td>Ja (Seiten)</td>
-                                    <td><strong>Microporen</strong></td>
-                                    <td><strong>Ja</strong></td>
-                                </tr>
-                                <tr>
-                                    <td class="feature-name">Gurtsystem</td>
-                                    <td>-</td>
-                                    <td>Ja</td>
-                                    <td>Ja</td>
-                                    <td>Ja</td>
-                                </tr>
-                                <tr>
-                                    <td class="feature-name">Innenschicht</td>
-                                    <td>Standard</td>
-                                    <td>Weich</td>
-                                    <td>Extra-weich</td>
-                                    <td><strong>Premium-weich</strong></td>
-                                </tr>
-                                <tr>
-                                    <td class="feature-name">Design</td>
-                                    <td>Standard</td>
-                                    <td>Standard</td>
-                                    <td>Reflektierende Elemente</td>
-                                    <td><strong>Luxus-Design</strong></td>
-                                </tr>
-                                <tr>
-                                    <td class="feature-name">UV-Schutz</td>
-                                    <td>Basis</td>
-                                    <td>Gut</td>
-                                    <td><strong>99%</strong></td>
-                                    <td><strong>99%</strong></td>
-                                </tr>
-                                <tr>
-                                    <td class="feature-name">Lackschutz</td>
-                                    <td>Basis</td>
-                                    <td>Gut</td>
-                                    <td>Sehr gut</td>
-                                    <td><strong>Maximum</strong></td>
-                                </tr>
-                                <tr>
-                                    <td class="feature-name">Reissverschluss-Zugang</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td><strong>Ja</strong></td>
-                                </tr>
-                                <tr>
-                                    <td class="feature-name">Fuer wen?</td>
-                                    <td>Gelegenheitsnutzer</td>
-                                    <td>Regelmaessige Nutzung</td>
-                                    <td>Anspruchsvolle</td>
-                                    <td><strong>Luxus/Oldtimer</strong></td>
-                                </tr>
-                                <tr class="action-row">
-                                    <td class="feature-name"></td>
-                                    <td><a href="klassisch.html" class="btn btn-secondary btn-small">Details</a></td>
-                                    <td><a href="praktisch.html" class="btn btn-secondary btn-small">Details</a></td>
-                                    <td><a href="premium.html" class="btn btn-secondary btn-small">Details</a></td>
-                                    <td><a href="exclusiv.html" class="btn btn-primary btn-small">Details</a></td>
-                                </tr>
-                            </tbody>
-                        </table>
+                            <div class="comparison-table-wrapper" style="overflow-x: auto;">
+                                <table class="comparison-table" style="font-size: 12px;">
+                                    <thead>
+                                        <tr>
+                                            <th>Eigenschaft</th>
+                                            <th>Klassisch</th>
+                                            <th>Praktisch</th>
+                                            <th>Premium</th>
+                                            <th>Exclusiv</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="feature-name">Schichten</td>
+                                            <td>1-2</td>
+                                            <td>3</td>
+                                            <td><strong>4</strong></td>
+                                            <td><strong>4</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="feature-name">Wasserdicht</td>
+                                            <td>Abweisend</td>
+                                            <td>100%</td>
+                                            <td><strong>Komplett</strong></td>
+                                            <td><strong>Komplett</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="feature-name">Atmungsaktiv</td>
+                                            <td>Ja</td>
+                                            <td>Seiten</td>
+                                            <td><strong>Microporen</strong></td>
+                                            <td><strong>Ja</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="feature-name">Gurtsystem</td>
+                                            <td>-</td>
+                                            <td>Ja</td>
+                                            <td>Ja</td>
+                                            <td>Ja</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="feature-name">Innenschicht</td>
+                                            <td>Standard</td>
+                                            <td>Weich</td>
+                                            <td>Extra-weich</td>
+                                            <td><strong>Premium</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="feature-name">UV-Schutz</td>
+                                            <td>Basis</td>
+                                            <td>Gut</td>
+                                            <td><strong>99%</strong></td>
+                                            <td><strong>99%</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="feature-name">Lackschutz</td>
+                                            <td>Basis</td>
+                                            <td>Gut</td>
+                                            <td>Sehr gut</td>
+                                            <td><strong>Maximum</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="feature-name">Fuer wen?</td>
+                                            <td>Gelegenheit</td>
+                                            <td>Regelmaessig</td>
+                                            <td>Anspruchsvoll</td>
+                                            <td><strong>Luxus</strong></td>
+                                        </tr>
+                                        <tr class="action-row">
+                                            <td></td>
+                                            <td><a href="klassisch.html" class="btn btn-secondary btn-small">Details</a></td>
+                                            <td><a href="praktisch.html" class="btn btn-secondary btn-small">Details</a></td>
+                                            <td><a href="premium.html" class="btn btn-secondary btn-small">Details</a></td>
+                                            <td><a href="exclusiv.html" class="btn btn-primary btn-small">Details</a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Groessen Info-Box -->
+                        <div>
+                            <div class="section-title" style="text-align: left;">
+                                <h2>Fuer jedes Fahrzeug die richtige Groesse</h2>
+                                <p>Von 280 cm bis 530 cm Fahrzeuglaenge</p>
+                            </div>
+
+                            <div style="background: linear-gradient(135deg, #36474F 0%, #4a5a62 100%); padding: 30px; border-radius: 12px; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);">
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+                                    <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 8px; text-align: center;">
+                                        <h4 style="color: white; margin-bottom: 5px;">Hatchback</h4>
+                                        <p style="color: rgba(255,255,255,0.8); font-size: 12px; margin: 0;">S5 - L2</p>
+                                    </div>
+                                    <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 8px; text-align: center;">
+                                        <h4 style="color: white; margin-bottom: 5px;">SUV/MiniVan</h4>
+                                        <p style="color: rgba(255,255,255,0.8); font-size: 12px; margin: 0;">S2 - XL</p>
+                                    </div>
+                                    <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 8px; text-align: center;">
+                                        <h4 style="color: white; margin-bottom: 5px;">Sedan</h4>
+                                        <p style="color: rgba(255,255,255,0.8); font-size: 12px; margin: 0;">M1 - XL</p>
+                                    </div>
+                                    <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 8px; text-align: center;">
+                                        <h4 style="color: white; margin-bottom: 5px;">Coupe</h4>
+                                        <p style="color: rgba(255,255,255,0.8); font-size: 12px; margin: 0;">S1 - L1</p>
+                                    </div>
+                                </div>
+                                <p style="color: rgba(255,255,255,0.9); font-size: 13px; text-align: center; margin-bottom: 20px;">
+                                    Detaillierte Groessentabelle auf jeder Produktseite
+                                </p>
+                                <div style="text-align: center;">
+                                    <a href="klassisch.html#groessentabelle" class="btn btn-secondary" style="background-color: white; color: #36474F;">Groessentabelle ansehen</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Verfuegbare Groessen Info-Box -->
+            <!-- Hagelschutz PKW Section -->
             <section class="section" style="background-color: #f8f9fa;">
                 <div class="container">
-                    <div style="max-width: 800px; margin-left: auto; margin-right: auto;">
-                        <div style="background: linear-gradient(135deg, #36474F 0%, #4a5a62 100%); padding: 40px; border-radius: 12px; text-align: center; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);">
-                            <svg style="width: 60px; height: 60px; margin: 0 auto 20px; color: white;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
-                            </svg>
-                            <h3 style="font-size: 28pt; color: white; margin-bottom: 15px;">Fuer jedes Fahrzeug die richtige Groesse</h3>
-                            <p style="font-size: 18pt; color: rgba(255, 255, 255, 0.9); margin-bottom: 25px;">
-                                Von <strong>280 cm</strong> bis <strong>530 cm</strong> Fahrzeuglaenge
-                            </p>
-                            <p style="font-size: 14pt; color: rgba(255, 255, 255, 0.8); margin-bottom: 30px;">
-                                Verfuegbar fuer Hatchback, SUV/MiniVan, Sedan und Coupe<br>
-                                Detaillierte Groessentabelle auf jeder Produktseite
-                            </p>
-                            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
-                                <a href="klassisch.html#groessentabelle" class="btn btn-secondary" style="background-color: white; color: #36474F;">Groessentabelle ansehen</a>
+                    <div class="section-title">
+                        <h2>Hagelschutz PKW Abdeckungen</h2>
+                        <p>Maximaler Schutz vor Hagelschaeden mit mehrlagiger Schockabsorption</p>
+                    </div>
+
+                    <div class="grid grid-3">
+                        <!-- Halb-Hageldeckung 14mm -->
+                        <div class="card" style="cursor: default;">
+                            <div class="card-image-wrapper">
+                                <div style="background: linear-gradient(135deg, #2c5364 0%, #203a43 100%); height: 200px; display: flex; align-items: center; justify-content: center;">
+                                    <svg style="width: 80px; height: 80px; color: white; opacity: 0.8;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/>
+                                    </svg>
+                                </div>
                             </div>
+                            <h3>Halb-Hageldeckung 14mm</h3>
+                            <div style="margin: 15px 0;">
+                                <span class="badge">14mm Dicke</span>
+                                <span class="badge">5-Punkt-Befestigung</span>
+                            </div>
+                            <p style="font-size: 13px; line-height: 1.6;">
+                                Schuetzt Dach, Motorhaube und Saeulen - die am staerksten hagelgefaehrdeten Teile. 5-lagige Konstruktion mit stossdaempfendem Schaum. Wasserdicht und dampfdurchlaessig.
+                            </p>
+
+                            <div style="margin-top: 20px; padding: 15px; background: #f8f9fa; border-radius: 8px;">
+                                <h4 style="font-size: 14px; margin-bottom: 10px; color: #36474F;">Verfuegbare Groessen:</h4>
+                                <table style="width: 100%; font-size: 11px; border-collapse: collapse;">
+                                    <tr style="border-bottom: 1px solid #ddd;">
+                                        <td style="padding: 5px 0;"><strong>Schragheck S</strong></td>
+                                        <td>390 x 80 cm</td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid #ddd;">
+                                        <td style="padding: 5px 0;"><strong>Schragheck M</strong></td>
+                                        <td>420 x 80 cm</td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid #ddd;">
+                                        <td style="padding: 5px 0;"><strong>Kombi L</strong></td>
+                                        <td>490 x 80 cm</td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid #ddd;">
+                                        <td style="padding: 5px 0;"><strong>Limousine L</strong></td>
+                                        <td>495 x 80 cm</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 5px 0;"><strong>SUV L</strong></td>
+                                        <td>490 x 80 cm</td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <details style="margin-top: 15px;">
+                                <summary style="cursor: pointer; color: #36474F; font-weight: bold;">Technische Details</summary>
+                                <div style="padding: 15px 0; font-size: 12px; line-height: 1.7;">
+                                    <p><strong>Oberteil (5 Schichten, 14mm):</strong></p>
+                                    <ul style="margin: 10px 0; padding-left: 20px;">
+                                        <li>Aeussere Schicht: Zweischichtiger Spunbond, wasserdicht und dampfdurchlaessig</li>
+                                        <li>Mittlere Schicht: Wasserdichte Beschichtung + stossdaempfender Schaum</li>
+                                        <li>Innenschicht: Feiner Spunbond, lacksicher</li>
+                                    </ul>
+                                    <p><strong>Seiten (4 Schichten):</strong> Dampfdurchlaessig, verhindert Kondensation</p>
+                                    <p style="margin-top: 10px;"><strong>Vorteile:</strong></p>
+                                    <ul style="margin: 10px 0; padding-left: 20px;">
+                                        <li>Ganzjaehriger Einsatz</li>
+                                        <li>Schnelle Montage ohne Zubehoer</li>
+                                        <li>Schutz bei starken Windboeen</li>
+                                    </ul>
+                                </div>
+                            </details>
+
+                            <a href="kontakt.html" class="btn btn-primary" style="margin-top: 15px; width: 100%; text-align: center;">Jetzt anfragen</a>
+                        </div>
+
+                        <!-- Hagelabdeckung 7mm -->
+                        <div class="card" style="cursor: default;">
+                            <div class="card-image-wrapper">
+                                <div style="background: linear-gradient(135deg, #2c5364 0%, #203a43 100%); height: 200px; display: flex; align-items: center; justify-content: center;">
+                                    <svg style="width: 80px; height: 80px; color: white; opacity: 0.8;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <h3>Hagelabdeckung 7mm</h3>
+                            <div style="margin: 15px 0;">
+                                <span class="badge">7mm Dicke</span>
+                                <span class="badge">Vollabdeckung</span>
+                                <span class="badge">UV-Filter</span>
+                            </div>
+                            <p style="font-size: 13px; line-height: 1.6;">
+                                Innovative Vollabdeckung mit 5-lagiger Konstruktion. Stossdaempfender Schaum absorbiert Hagelenergie effektiv. Wasserdicht und dampfdurchlaessig mit eingebautem UV-Filter.
+                            </p>
+
+                            <div style="margin-top: 20px; padding: 15px; background: #f8f9fa; border-radius: 8px;">
+                                <h4 style="font-size: 14px; margin-bottom: 10px; color: #36474F;">Verfuegbare Groessen:</h4>
+                                <div style="font-size: 11px; max-height: 150px; overflow-y: auto;">
+                                    <p style="margin: 5px 0;"><strong>Schragheck:</strong> S3-M1 (355-430cm)</p>
+                                    <p style="margin: 5px 0;"><strong>Kombi:</strong> M2-L2 (455-505cm)</p>
+                                    <p style="margin: 5px 0;"><strong>SUV/MiniVan:</strong> S2-XL (380-530cm)</p>
+                                    <p style="margin: 5px 0;"><strong>Limousine:</strong> M1-XL (430-530cm)</p>
+                                    <p style="margin: 5px 0;"><strong>Coupe:</strong> S1-L1 (405-480cm)</p>
+                                </div>
+                            </div>
+
+                            <details style="margin-top: 15px;">
+                                <summary style="cursor: pointer; color: #36474F; font-weight: bold;">Technische Details</summary>
+                                <div style="padding: 15px 0; font-size: 12px; line-height: 1.7;">
+                                    <p><strong>Oberteil (5 Schichten, 7mm):</strong></p>
+                                    <ul style="margin: 10px 0; padding-left: 20px;">
+                                        <li>Aeussere Schicht: Zweischichtiger Spunbond, wasserdicht</li>
+                                        <li>Mittlere Schicht: Wasserdichte Beschichtung + stossdaempfender Schaum</li>
+                                        <li>Innenschicht: Feines Polypropylen, kratzfrei</li>
+                                    </ul>
+                                    <p><strong>Befestigung:</strong></p>
+                                    <ul style="margin: 10px 0; padding-left: 20px;">
+                                        <li>Starkes Gummiband am unteren Rand</li>
+                                        <li>Oesen fuer zusaetzliche Stabilisierungsbaender</li>
+                                        <li>Eingenähtes Etikett fuer schnelle Montage</li>
+                                    </ul>
+                                </div>
+                            </details>
+
+                            <a href="kontakt.html" class="btn btn-primary" style="margin-top: 15px; width: 100%; text-align: center;">Jetzt anfragen</a>
+                        </div>
+
+                        <!-- Hagelabdeckung 14mm Premium -->
+                        <div class="card" style="cursor: default;">
+                            <div class="card-image-wrapper">
+                                <div style="background: linear-gradient(135deg, #2c5364 0%, #203a43 100%); height: 200px; display: flex; align-items: center; justify-content: center;">
+                                    <svg style="width: 80px; height: 80px; color: white; opacity: 0.8;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <h3>Hagelabdeckung 14mm Premium</h3>
+                            <div style="margin: 15px 0;">
+                                <span class="badge">14mm Dicke</span>
+                                <span class="badge">Vollabdeckung</span>
+                                <span class="badge">Maximum Schutz</span>
+                            </div>
+                            <p style="font-size: 13px; line-height: 1.6;">
+                                Maximaler Schutz mit 14mm dicker 5-lagiger Konstruktion. Spezieller stossdaempfender Schaum absorbiert und verteilt Aufprallenergie. Ganzjaehriger Schutz vor Hagel, Schnee, Regen und UV-Strahlung.
+                            </p>
+
+                            <div style="margin-top: 20px; padding: 15px; background: #f8f9fa; border-radius: 8px;">
+                                <h4 style="font-size: 14px; margin-bottom: 10px; color: #36474F;">Verfuegbare Groessen:</h4>
+                                <div style="font-size: 11px; max-height: 150px; overflow-y: auto;">
+                                    <p style="margin: 5px 0;"><strong>Hatchback:</strong> S3-M1 (355-430cm)</p>
+                                    <p style="margin: 5px 0;"><strong>Kombi:</strong> M2-L2 (455-505cm)</p>
+                                    <p style="margin: 5px 0;"><strong>SUV/MiniVan:</strong> S2-XL (380-530cm)</p>
+                                    <p style="margin: 5px 0;"><strong>Sedan:</strong> M1-XL (430-530cm)</p>
+                                    <p style="margin: 5px 0;"><strong>Coupe:</strong> S1-L1 (405-480cm)</p>
+                                </div>
+                            </div>
+
+                            <details style="margin-top: 15px;">
+                                <summary style="cursor: pointer; color: #36474F; font-weight: bold;">Technische Details</summary>
+                                <div style="padding: 15px 0; font-size: 12px; line-height: 1.7;">
+                                    <p><strong>Oberteil (5 Schichten, 14mm):</strong></p>
+                                    <ul style="margin: 10px 0; padding-left: 20px;">
+                                        <li>Aeussere Schicht: Zweischichtiger Spunbond, wasserdicht und UV-bestaendig</li>
+                                        <li>Mittlere Schicht: Wasserdichte Beschichtung + stossdaempfender Schaum</li>
+                                        <li>Innenschicht: Weicher Polypropylen-Spunbond</li>
+                                    </ul>
+                                    <p><strong>Vorteile:</strong></p>
+                                    <ul style="margin: 10px 0; padding-left: 20px;">
+                                        <li>Effektive Stossdaempfung minimiert Dellenrisiko</li>
+                                        <li>Eingebauter UV-Filter fuer lange Haltbarkeit</li>
+                                        <li>Komplettes Befestigungssystem inkl. Stabilisierungsbaender</li>
+                                        <li>Intuitive Montage dank Positionsmarkierung</li>
+                                    </ul>
+                                </div>
+                            </details>
+
+                            <a href="kontakt.html" class="btn btn-primary" style="margin-top: 15px; width: 100%; text-align: center;">Jetzt anfragen</a>
                         </div>
                     </div>
                 </div>
